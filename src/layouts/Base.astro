@@ -14,7 +14,7 @@ const ogImage = new URL(withBase('og.png'), Astro.site).href;
 
 const nav = [
   { href: withBase(''), label: 'Home' },
-  { href: withBase('privacy'), label: 'Privacy' },
+  { href: withBase('gita'), label: 'Read the Gita' },
   { href: withBase('support'), label: 'Support' },
 ];
 
@@ -41,6 +41,14 @@ const jsonLd = {
     <link rel="icon" href={withBase('favicon.svg')} type="image/svg+xml" />
     <meta name="theme-color" content="#E5731F" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Brand fonts (same as the app): Bricolage Grotesque + Noto Serif Devanagari -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Noto+Serif+Devanagari:wght@400..600&display=swap"
+    />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Gita Daily" />

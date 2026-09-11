@@ -7,12 +7,18 @@
   --muted: #8a7c6d;
   --line: rgba(120, 82, 38, 0.16);
   --teal: #4e8f86;
+  --teal-soft: rgba(111, 168, 160, 0.17);
+  --tealSoft: rgba(111, 168, 160, 0.17);
+  --chip: #f0e8dd;
   --accent: #e5731f;
   --accent-soft: #fbe7d3;
   --radius: 18px;
   --maxw: 940px;
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
-  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* App brand fonts: Bricolage Grotesque (display + UI + body), Noto Serif
+     Devanagari (Sanskrit / Hindi / Nepali verse text). Loaded in Base.astro. */
+  --display: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --sans: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --deva: "Noto Serif Devanagari", "Nirmala UI", Georgia, "Times New Roman", serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,6 +31,9 @@
     --muted: rgba(242, 234, 219, 0.55);
     --line: rgba(242, 234, 219, 0.14);
     --teal: #7fc4b8;
+    --teal-soft: rgba(127, 196, 184, 0.15);
+    --tealSoft: rgba(127, 196, 184, 0.15);
+    --chip: #221d17;
     --accent: #ffb25e;
     --accent-soft: rgba(255, 178, 94, 0.14);
   }
@@ -49,7 +58,7 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.15; color: var(--ink); }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.15; color: var(--ink); letter-spacing: -0.015em; }
 h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); letter-spacing: -0.01em; margin: 0 0 0.4em; }
 h2 { font-size: clamp(1.5rem, 3.4vw, 2rem); margin: 2.2em 0 0.6em; }
 h3 { font-size: 1.15rem; margin: 1.6em 0 0.4em; }
@@ -58,7 +67,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 /* Header */
 .site-header { border-bottom: 1px solid var(--line); position: sticky; top: 0; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(8px); z-index: 10; }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 62px; }
-.brand { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-weight: 600; font-size: 1.15rem; color: var(--ink); }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 700; font-size: 1.15rem; color: var(--ink); }
 .brand:hover { text-decoration: none; }
 .brand svg { width: 26px; height: 26px; display: block; }
 .nav { display: flex; gap: 22px; }
@@ -69,7 +78,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 .hero { padding: clamp(56px, 12vw, 120px) 0 clamp(40px, 8vw, 80px); text-align: center; }
 .eyebrow { display: inline-block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); margin-bottom: 18px; }
 .hero p.lede { font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: var(--ink-soft); max-width: 620px; margin: 0 auto 1.6em; }
-.wordmark-deva { font-family: var(--serif); color: var(--teal); font-size: 1.1rem; letter-spacing: 0.04em; margin-bottom: 6px; }
+.wordmark-deva { font-family: var(--deva); color: var(--teal); font-size: 1.2rem; letter-spacing: 0.02em; margin-bottom: 6px; }
 
 /* Buttons */
 .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
@@ -101,3 +110,69 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 .site-footer .nav a { color: var(--muted); }
 
 section { scroll-margin-top: 80px; }
+
+/* ---------- Gita reader ---------- */
+.reader { padding: 34px 0 72px; }
+.reader-head { max-width: 760px; }
+.breadcrumb { font-size: 0.9rem; color: var(--muted); margin-bottom: 14px; }
+.breadcrumb a { color: var(--muted); }
+.breadcrumb a:hover { color: var(--accent); }
+
+/* Chapter index */
+.section-band { margin: 40px 0 10px; }
+.section-band h2 { margin: 0; display: flex; align-items: baseline; gap: 12px; }
+.section-band .deva-tag { font-family: var(--deva); color: var(--teal); font-size: 1.1rem; }
+.section-band p { margin: 4px 0 0; color: var(--muted); font-size: 0.9rem; }
+.ch-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 16px; }
+.ch-card { display: flex; gap: 16px; align-items: flex-start; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; }
+.ch-card:hover { border-color: var(--accent); text-decoration: none; }
+.ch-num { flex: none; width: 42px; height: 42px; border-radius: 12px; background: var(--tealSoft, rgba(111,168,160,0.17)); color: var(--teal); font-family: var(--display); font-weight: 700; font-size: 1.15rem; display: flex; align-items: center; justify-content: center; }
+.ch-card .en { font-family: var(--display); font-weight: 600; color: var(--ink); font-size: 1.05rem; }
+.ch-card .deva { font-family: var(--deva); color: var(--teal); font-size: 0.95rem; margin: 1px 0 3px; }
+.ch-card .theme { color: var(--muted); font-size: 0.85rem; }
+
+/* Language toggle */
+.lang-toggle { display: inline-flex; gap: 4px; padding: 4px; background: var(--chip, #f0e8dd); border-radius: 999px; margin: 18px 0 8px; }
+.lang-toggle button { border: 0; background: transparent; color: var(--ink-soft); font-family: var(--display); font-weight: 600; font-size: 0.9rem; padding: 7px 16px; border-radius: 999px; cursor: pointer; }
+.lang-toggle button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+
+/* Verses */
+.verses { max-width: 760px; margin-top: 8px; }
+.verse { padding: 26px 0; border-top: 1px solid var(--line); }
+.verse:first-child { border-top: 0; }
+.verse-num { font-family: var(--display); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.08em; color: var(--teal); text-transform: uppercase; }
+.verse-num a { color: var(--teal); }
+.sanskrit { font-family: var(--deva); font-size: 1.32rem; line-height: 1.95; color: var(--ink); margin: 10px 0 14px; white-space: pre-line; }
+.meaning { font-size: 1.06rem; line-height: 1.7; color: var(--ink-soft); margin: 0; }
+.meaning.deva { font-family: var(--deva); line-height: 1.9; }
+.byline { color: var(--muted); font-size: 0.82rem; margin-top: 8px; }
+.context { margin-top: 14px; padding: 14px 16px; background: var(--parchment); border: 1px solid var(--line); border-radius: 14px; }
+.context .label { font-family: var(--display); font-weight: 700; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 6px; }
+.context p { margin: 0; font-size: 0.96rem; color: var(--ink-soft); }
+.context p.deva { font-family: var(--deva); line-height: 1.85; }
+/* Language toggle: all three translations are in the HTML (for SEO); CSS shows
+   only the active one. Defaults to English with no JS. */
+[data-lang="en"] [data-tr]:not([data-tr="en"]),
+[data-lang="hi"] [data-tr]:not([data-tr="hi"]),
+[data-lang="ne"] [data-tr]:not([data-tr="ne"]) { display: none; }
+
+/* Chapter prev/next */
+.chapter-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 40px; max-width: 760px; }
+.chapter-nav a { flex: 1; border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 18px; color: var(--ink); }
+.chapter-nav a:hover { border-color: var(--accent); text-decoration: none; }
+.chapter-nav .dir { display: block; font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.chapter-nav .nx { text-align: right; }
+.chapter-nav .name { font-family: var(--display); font-weight: 600; }
+
+/* App CTA banner */
+.app-cta { max-width: 760px; margin: 30px 0; padding: 22px 24px; border-radius: var(--radius); background: var(--accent-soft); border: 1px solid var(--line); }
+.app-cta h3 { margin: 0 0 4px; color: var(--ink); }
+.app-cta p { margin: 0 0 12px; color: var(--ink-soft); font-size: 0.95rem; }
+
+@media (max-width: 560px) {
+  .sanskrit { font-size: 1.18rem; }
+  .chapter-nav { flex-direction: column; }
+  .site-header .wrap { height: 56px; }
+  .nav { gap: 16px; }
+}
+

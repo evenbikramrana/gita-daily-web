@@ -1,6 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+
 const features = [
   { ic: '🪷', title: 'Led by how you feel', body: 'Start from a mood — anxious, restless, grateful, lost — and meet a verse chosen for that moment.' },
   { ic: '📖', title: 'The whole Gita, free', body: 'All 18 chapters and 701 verses, always free to read. No paywall on the scripture, ever.' },
@@ -25,8 +28,8 @@ const features = [
         and let the verse meet you there. Free to read, in three languages.
       </p>
       <div class="btns">
-        <span class="btn btn-primary" aria-disabled="true">Coming soon to Google Play</span>
-        <a class="btn btn-ghost" href="#features">See what's inside</a>
+        <a class="btn btn-primary" href={withBase('gita')}>Read the Gita free</a>
+        <span class="btn btn-ghost" aria-disabled="true">App coming soon to Google Play</span>
       </div>
     </div>
   </section>

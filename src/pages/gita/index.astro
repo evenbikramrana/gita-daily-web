@@ -1,0 +1,65 @@
+---
+import Base from '../../layouts/Base.astro';
+import data from '../../data/gita.json';
+
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+
+const sections = [
+  { label: 'The Way of Action', deva: 'कर्ममार्ग', range: [1, 6] },
+  { label: 'The Way of Devotion', deva: 'भक्तिमार्ग', range: [7, 12] },
+  { label: 'The Way of Knowledge', deva: 'ज्ञानमार्ग', range: [13, 18] },
+];
+const chapters = data.chapters;
+const totalVerses = chapters.reduce((n, c) => n + c.verseCount, 0);
+---
+
+<Base
+  title="Read the Bhagavad Gita — all 18 chapters, free | Gita Daily"
+  description="Read the complete Bhagavad Gita free online — all 18 chapters and 701 verses, with the original Sanskrit and translations in English, Hindi and Nepali."
+>
+  <article class="wrap reader">
+    <div class="reader-head">
+      <nav class="breadcrumb"><a href={withBase('')}>Home</a> › Read the Gita</nav>
+      <div class="wordmark-deva">श्रीमद्भगवद्गीता</div>
+      <h1>The Bhagavad Gita</h1>
+      <p>
+        The complete text — all <strong>18 chapters</strong> and <strong>{totalVerses} verses</strong> —
+        free to read, in the original Sanskrit with English, Hindi (हिन्दी) and Nepali (नेपाली)
+        translations and context for every verse.
+      </p>
+    </div>
+
+    {sections.map((s) => (
+      <div>
+        <div class="section-band">
+          <h2>{s.label} <span class="deva-tag">{s.deva}</span></h2>
+          <p>Chapters {s.range[0]}–{s.range[1]}</p>
+        </div>
+        <div class="ch-list">
+          {chapters
+            .filter((c) => c.number >= s.range[0] && c.number <= s.range[1])
+            .map((c) => (
+              <a class="ch-card" href={withBase(`gita/${c.number}`)}>
+                <span class="ch-num">{c.number}</span>
+                <span>
+                  <span class="en">{c.en}</span>
+                  <span class="deva">{c.title}</span>
+                  <span class="theme">{c.theme} · {c.verseCount} verses</span>
+                </span>
+              </a>
+            ))}
+        </div>
+      </div>
+    ))}
+
+    <div class="app-cta">
+      <h3>Make it a daily practice</h3>
+      <p>
+        The Gita Daily app meets you where you are — start from a mood, get a verse for the moment,
+        save what moves you, and keep a gentle daily streak.
+      </p>
+      <span class="btn btn-primary" aria-disabled="true">Coming soon to Google Play</span>
+    </div>
+  </article>
+</Base>

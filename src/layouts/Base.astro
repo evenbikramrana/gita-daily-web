@@ -1,0 +1,92 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+
+const base = import.meta.env.BASE_URL; // e.g. '/gita-daily-web/'
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(withBase('og.png'), Astro.site).href;
+
+const nav = [
+  { href: withBase(''), label: 'Home' },
+  { href: withBase('privacy'), label: 'Privacy' },
+  { href: withBase('support'), label: 'Support' },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'MobileApplication',
+  name: 'Gita Daily',
+  operatingSystem: 'ANDROID',
+  applicationCategory: 'LifestyleApplication',
+  description:
+    'A mood-led Bhagavad Gita companion — read the whole Gita free in English, Hindi and Nepali, with a daily verse, saved verses, streaks and gentle reminders.',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={withBase('favicon.svg')} type="image/svg+xml" />
+    <meta name="theme-color" content="#E5731F" />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gita Daily" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href={withBase('')} aria-label="Gita Daily home">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <g>
+              <path d="M50 78 C36 60 30 42 22 46 C26 64 38 74 50 78 Z" fill="#4E8F86" />
+              <path d="M50 78 C64 60 70 42 78 46 C74 64 62 74 50 78 Z" fill="#4E8F86" />
+              <path d="M50 78 C42 56 44 34 50 26 C56 34 58 56 50 78 Z" fill="#E5731F" />
+            </g>
+          </svg>
+          Gita Daily
+        </a>
+        <nav class="nav">
+          {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>© {new Date().getFullYear()} Gita Daily · The Bhagavad Gita, free to read.</span>
+        <nav class="nav">
+          <a href={withBase('privacy')}>Privacy</a>
+          <a href={withBase('support')}>Support</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+const updated = 'September 11, 2026';
+const email = 'hello@gitadaily.app';
+---
+
+<Base
+  title="Privacy Policy — Gita Daily"
+  description="How Gita Daily handles your data: what we collect, why, where it's stored, and how to delete it."
+>
+  <article class="wrap prose">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: {updated}</p>
+
+    <p>
+      Gita Daily ("we", "us") is a mobile app for reading the Bhagavad Gita. This policy explains
+      what information the app collects, why, and the choices you have. We keep data collection to
+      the minimum needed to run the app, and we never sell your data.
+    </p>
+
+    <h2>Information we collect</h2>
+    <ul>
+      <li>
+        <strong>Account information.</strong> When you create an account or sign in, we collect your
+        email address (and a unique account identifier). Sign-in is handled through our authentication
+        provider; if you use Google or Apple sign-in, we receive your email address from them to
+        create your account.
+      </li>
+      <li>
+        <strong>Your activity in the app.</strong> Verses you save, your reading streak, and your
+        reading progress, so they're available on your account across devices.
+      </li>
+      <li>
+        <strong>Preferences.</strong> Settings such as your chosen language, theme, and daily-reminder
+        time. Reminder scheduling happens on your device.
+      </li>
+      <li>
+        <strong>Technical data.</strong> Our hosting and infrastructure providers may process limited
+        technical information (such as IP address and request logs) to operate the service securely.
+      </li>
+    </ul>
+    <p>
+      The app does <strong>not</strong> include third-party advertising or analytics trackers, and it
+      does not collect your contacts, location, photos, or precise identifiers.
+    </p>
+
+    <h2>How we use your information</h2>
+    <ul>
+      <li>To create and secure your account and sign you in.</li>
+      <li>To save your verses, streak, and progress and sync them to your account.</li>
+      <li>To send the daily reminder you opt into (scheduled locally on your device).</li>
+      <li>To operate, maintain, and improve the app.</li>
+    </ul>
+
+    <h2>Where your data is stored</h2>
+    <p>
+      Account data and saved content are stored using <strong>Supabase</strong> (authentication and
+      database) and processed by our backend hosted on <strong>Railway</strong>. These providers act
+      as data processors on our behalf and may store data on servers outside your country.
+    </p>
+
+    <h2>Sharing</h2>
+    <p>
+      We do not sell your personal information and we do not share it for advertising. We share data
+      only with the infrastructure providers named above, strictly to run the service, and where
+      required by law.
+    </p>
+
+    <h2>Your choices &amp; your rights</h2>
+    <ul>
+      <li>You can turn daily reminders on or off at any time in the app's settings.</li>
+      <li>You can remove saved verses at any time.</li>
+      <li>
+        You can request access to, or deletion of, your account and associated data by emailing us at
+        <a href={`mailto:${email}`}>{email}</a>. We'll action verified requests within a reasonable time.
+      </li>
+    </ul>
+
+    <h2>Data retention</h2>
+    <p>
+      We keep your account data while your account is active. When you ask us to delete your account,
+      we remove your personal data from our systems, except where we must retain it to comply with
+      legal obligations.
+    </p>
+
+    <h2>Children</h2>
+    <p>
+      Gita Daily is not directed to children under 13, and we do not knowingly collect personal
+      information from them. If you believe a child has provided us data, contact us and we'll delete it.
+    </p>
+
+    <h2>Security</h2>
+    <p>
+      We use reputable providers and standard safeguards (including encrypted connections) to protect
+      your data. No method of transmission or storage is completely secure, but we work to protect
+      your information.
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      We may update this policy from time to time. Material changes will be reflected here with a new
+      "last updated" date.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about this policy or your data? Email <a href={`mailto:${email}`}>{email}</a>.
+    </p>
+  </article>
+</Base>

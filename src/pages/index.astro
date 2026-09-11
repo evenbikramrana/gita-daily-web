@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+
+const features = [
+  { ic: '🪷', title: 'Led by how you feel', body: 'Start from a mood — anxious, restless, grateful, lost — and meet a verse chosen for that moment.' },
+  { ic: '📖', title: 'The whole Gita, free', body: 'All 18 chapters and 701 verses, always free to read. No paywall on the scripture, ever.' },
+  { ic: '🌏', title: 'Trilingual', body: 'Read every verse in English, Hindi (हिन्दी) and Nepali (नेपाली), with context for each.' },
+  { ic: '✶', title: 'A verse each day', body: 'A featured verse of the day, with a gentle daily reminder if you want one.' },
+  { ic: '❤', title: 'Save & build a streak', body: 'Keep the verses that stay with you, and watch a quiet reading streak grow.' },
+  { ic: '🕊', title: 'Calm by design', body: 'A warm, unhurried reading space — no ads, no noise, no pressure.' },
+];
+---
+
+<Base
+  title="Gita Daily — a mood-led Bhagavad Gita companion"
+  description="Read the whole Bhagavad Gita free in English, Hindi and Nepali. Start from how you feel, get a daily verse, save what moves you, and build a gentle reading streak."
+>
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">The Bhagavad Gita, for how you feel</span>
+      <div class="wordmark-deva">श्रीमद्भगवद्गीता</div>
+      <h1>Gita Daily</h1>
+      <p class="lede">
+        A calm, mood-led companion to the Bhagavad Gita. Begin with what you're feeling —
+        and let the verse meet you there. Free to read, in three languages.
+      </p>
+      <div class="btns">
+        <span class="btn btn-primary" aria-disabled="true">Coming soon to Google Play</span>
+        <a class="btn btn-ghost" href="#features">See what's inside</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="wrap">
+    <h2>What's inside</h2>
+    <div class="features">
+      {features.map((f) => (
+        <article class="card">
+          <span class="ic" aria-hidden="true">{f.ic}</span>
+          <h3>{f.title}</h3>
+          <p>{f.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap" style="padding: 40px 0 80px; max-width: 640px;">
+    <h2>Free, always</h2>
+    <p>
+      The Gita has been shared freely for millennia. Gita Daily keeps it that way — the full
+      scripture is free to read forever. A gentle guided companion is on the way for those who
+      want to go deeper, but the text itself will never sit behind a paywall.
+    </p>
+  </section>
+</Base>

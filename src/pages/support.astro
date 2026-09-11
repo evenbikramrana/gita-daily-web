@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+const email = 'hello@gitadaily.app';
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+
+const faqs = [
+  { q: 'Is Gita Daily free?', a: 'Yes. The full Bhagavad Gita — all 18 chapters and 701 verses — is free to read, always. A deeper guided companion is planned as an optional extra, but the scripture itself will never be behind a paywall.' },
+  { q: 'Which languages are supported?', a: 'Every verse is available in English, Hindi (हिन्दी) and Nepali (नेपाली), each with context. You can switch language any time while reading.' },
+  { q: 'How do daily reminders work?', a: 'You can turn on a gentle daily reminder and pick a time in Settings. Reminders are scheduled on your device — turn them off any time.' },
+  { q: 'How do I save verses and build a streak?', a: 'Tap the heart on any verse to save it to your collection. Reading each day quietly grows your streak — no pressure, just a gentle nudge to return.' },
+  { q: 'I’m having trouble signing in.', a: 'Make sure you’re connected to the internet and using the same email or Google/Apple account you signed up with. If it still won’t work, email us and we’ll help.' },
+  { q: 'How do I delete my account or data?', a: 'Email us from the address on your account and we’ll delete your account and associated data. See the Privacy Policy for details.' },
+];
+---
+
+<Base
+  title="Support — Gita Daily"
+  description="Help with Gita Daily: FAQs on languages, reminders, saving verses, accounts, and how to contact us."
+>
+  <article class="wrap prose">
+    <h1>Support</h1>
+    <p class="updated">We're a small project and happy to help.</p>
+
+    <p>
+      The quickest way to reach us is by email:
+      <a href={`mailto:${email}`}>{email}</a>. We usually reply within a few days.
+    </p>
+
+    <h2>Frequently asked questions</h2>
+    {faqs.map((f) => (
+      <section>
+        <h3>{f.q}</h3>
+        <p>{f.a}</p>
+      </section>
+    ))}
+
+    <h2>Still need help?</h2>
+    <p>
+      Email <a href={`mailto:${email}`}>{email}</a> with your question and, if it's about a bug, the
+      device you're using. You can also review our <a href={withBase('privacy')}>Privacy Policy</a>.
+    </p>
+  </article>
+</Base>

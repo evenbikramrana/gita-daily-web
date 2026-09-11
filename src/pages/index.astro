@@ -35,25 +35,34 @@ const features = [
     </div>
   </section>
 
-  <section id="features" class="wrap">
-    <h2>What's inside</h2>
-    <div class="features">
-      {features.map((f) => (
-        <article class="card">
-          <Icon name={f.icon} size={26} class="ic" />
-          <h3>{f.title}</h3>
-          <p>{f.body}</p>
-        </article>
-      ))}
+  <section id="features" class="section">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>What's inside</h2>
+        <p>A calm place to read the Gita — and a daily practice to keep returning to it.</p>
+      </div>
+      <div class="features">
+        {features.map((f) => (
+          <article class="card">
+            <span class="ic-wrap"><Icon name={f.icon} size={24} /></span>
+            <h3>{f.title}</h3>
+            <p>{f.body}</p>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 
-  <section class="wrap" style="padding: 40px 0 80px; max-width: 640px;">
-    <h2>Free, always</h2>
-    <p>
-      The Gita has been shared freely for millennia. Gita Daily keeps it that way — the full
-      scripture is free to read forever. A gentle guided companion is on the way for those who
-      want to go deeper, but the text itself will never sit behind a paywall.
-    </p>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>Free, always</h2>
+        <p>
+          The Gita has been shared freely for millennia — and Gita Daily keeps it that way. The full
+          scripture is free to read forever. A gentle guided companion is on the way for those who
+          want to go deeper, but the text itself will never sit behind a paywall.
+        </p>
+      </div>
+    </div>
   </section>
 </Base>

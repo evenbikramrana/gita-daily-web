@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Icon from '../components/Icon.astro';
 
 export interface Props {
   title: string;
@@ -35,6 +36,15 @@ const jsonLd = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Apply the saved theme before paint to avoid a flash of the wrong theme. -->
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
@@ -77,9 +87,25 @@ const jsonLd = {
           </svg>
           Gita Daily
         </a>
-        <nav class="nav">
-          {nav.map((n) => <a href={n.href}>{n.label}</a>)}
-        </nav>
+        <div class="header-right">
+          <nav class="nav" id="site-nav">
+            {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+          </nav>
+          <button class="icon-btn theme-toggle" type="button" aria-label="Switch light or dark theme">
+            <Icon name="sun" size={20} class="i-light" />
+            <Icon name="moon" size={20} class="i-dark" />
+          </button>
+          <button
+            class="icon-btn menu-btn"
+            type="button"
+            aria-label="Menu"
+            aria-expanded="false"
+            aria-controls="site-nav"
+          >
+            <Icon name="menu" size={22} class="i-menu" />
+            <Icon name="close" size={22} class="i-close" />
+          </button>
+        </div>
       </div>
     </header>
 
@@ -96,5 +122,40 @@ const jsonLd = {
         </nav>
       </div>
     </footer>
+
+    <script is:inline>
+      (function () {
+        // Theme toggle
+        var tt = document.querySelector('.theme-toggle');
+        if (tt) {
+          tt.addEventListener('click', function () {
+            var cur = document.documentElement.getAttribute('data-theme');
+            var resolved =
+              cur ||
+              (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light');
+            var next = resolved === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('theme', next); } catch (e) {}
+          });
+        }
+        // Mobile menu
+        var mb = document.querySelector('.menu-btn');
+        var nav = document.getElementById('site-nav');
+        if (mb && nav) {
+          mb.addEventListener('click', function () {
+            var open = nav.classList.toggle('open');
+            mb.setAttribute('aria-expanded', String(open));
+          });
+          nav.addEventListener('click', function (e) {
+            if (e.target.tagName === 'A') {
+              nav.classList.remove('open');
+              mb.setAttribute('aria-expanded', 'false');
+            }
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

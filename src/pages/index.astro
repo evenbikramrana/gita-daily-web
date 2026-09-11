@@ -1,16 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
 
 const base = import.meta.env.BASE_URL;
 const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
 
 const features = [
-  { ic: '🪷', title: 'Led by how you feel', body: 'Start from a mood — anxious, restless, grateful, lost — and meet a verse chosen for that moment.' },
-  { ic: '📖', title: 'The whole Gita, free', body: 'All 18 chapters and 701 verses, always free to read. No paywall on the scripture, ever.' },
-  { ic: '🌏', title: 'Trilingual', body: 'Read every verse in English, Hindi (हिन्दी) and Nepali (नेपाली), with context for each.' },
-  { ic: '✶', title: 'A verse each day', body: 'A featured verse of the day, with a gentle daily reminder if you want one.' },
-  { ic: '❤', title: 'Save & build a streak', body: 'Keep the verses that stay with you, and watch a quiet reading streak grow.' },
-  { ic: '🕊', title: 'Calm by design', body: 'A warm, unhurried reading space — no ads, no noise, no pressure.' },
+  { icon: 'compass', title: 'Led by how you feel', body: 'Start from a mood — anxious, restless, grateful, lost — and meet a verse chosen for that moment.' },
+  { icon: 'book', title: 'The whole Gita, free', body: 'All 18 chapters and 701 verses, always free to read. No paywall on the scripture, ever.' },
+  { icon: 'globe', title: 'Trilingual', body: 'Read every verse in English, Hindi (हिन्दी) and Nepali (नेपाली), with context for each.' },
+  { icon: 'sun', title: 'A verse each day', body: 'A featured verse of the day, with a gentle daily reminder if you want one.' },
+  { icon: 'bookmark', title: 'Save & build a streak', body: 'Keep the verses that stay with you, and watch a quiet reading streak grow.' },
+  { icon: 'leaf', title: 'Calm by design', body: 'A warm, unhurried reading space — no ads, no noise, no pressure.' },
 ];
 ---
 
@@ -39,7 +40,7 @@ const features = [
     <div class="features">
       {features.map((f) => (
         <article class="card">
-          <span class="ic" aria-hidden="true">{f.ic}</span>
+          <Icon name={f.icon} size={26} class="ic" />
           <h3>{f.title}</h3>
           <p>{f.body}</p>
         </article>

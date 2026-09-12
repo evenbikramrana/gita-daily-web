@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://evenbikramrana.github.io/gita-daily-web/sitemap-index.xml
+Sitemap: https://gitadaily.org/sitemap-index.xml

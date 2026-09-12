@@ -1,11 +1,10 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// Deployed to GitHub Pages as a project site: https://<user>.github.io/<repo>/
-// When you move to a custom domain later, set `site` to it and `base` to '/'.
+// Served at the root of the custom domain gitadaily.org.
 export default defineConfig({
-  site: 'https://evenbikramrana.github.io',
-  base: '/gita-daily-web',
+  site: 'https://gitadaily.org',
+  base: '/',
   trailingSlash: 'ignore',
   integrations: [sitemap()],
 });

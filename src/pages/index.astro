@@ -1,10 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
+import data from '../data/gita.json';
 
 const base = import.meta.env.BASE_URL;
 const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
 const site = (Astro.site?.href ?? 'https://gitadaily.org/').replace(/\/$/, '');
+
+// A well-known verse to feature on the page (Gita 2.47 — act, release the fruit).
+const featured = data.chapters.find((c) => c.number === 2)?.verses.find((v) => v.number === 47);
 
 const schema = [
   {
@@ -50,29 +54,49 @@ const features = [
 >
   <section class="hero">
     <div class="wrap">
-      <span class="eyebrow">The Bhagavad Gita, for how you feel</span>
-      <div class="wordmark-deva">श्रीमद्भगवद्गीता</div>
-      <h1>Gita Daily</h1>
-      <p class="lede">
+      <svg class="hero-lotus reveal" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M50 78 C36 60 30 42 22 46 C26 64 38 74 50 78 Z" fill="#4E8F86" />
+        <path d="M50 78 C64 60 70 42 78 46 C74 64 62 74 50 78 Z" fill="#4E8F86" />
+        <path d="M50 78 C42 56 44 34 50 26 C56 34 58 56 50 78 Z" fill="#E5731F" />
+      </svg>
+      <span class="eyebrow reveal" style="--d:60ms">The Bhagavad Gita, for how you feel</span>
+      <div class="wordmark-deva reveal" style="--d:120ms">श्रीमद्भगवद्गीता</div>
+      <h1 class="reveal" style="--d:180ms">Gita Daily</h1>
+      <p class="lede reveal" style="--d:240ms">
         A calm, mood-led companion to the Bhagavad Gita. Begin with what you're feeling —
         and let the verse meet you there. Free to read, in three languages.
       </p>
-      <div class="btns">
+      <div class="btns reveal" style="--d:320ms">
         <a class="btn btn-primary" href={withBase('gita')}>Read the Gita free</a>
         <span class="btn btn-ghost" aria-disabled="true">App coming soon to Google Play</span>
       </div>
     </div>
   </section>
 
+  {featured && (
+    <section class="verse-band">
+      <div class="wrap">
+        <figure class="verse-hero reveal">
+          <p class="verse-hero-sa" lang="sa">{featured.sanskrit}</p>
+          <div class="danda" aria-hidden="true">॥</div>
+          <blockquote class="verse-hero-en">{featured.en}</blockquote>
+          <figcaption class="verse-hero-ref">Bhagavad Gītā · 2.47</figcaption>
+        </figure>
+      </div>
+    </section>
+  )}
+
+  <div class="wrap"><div class="ornament reveal" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M50 78 C36 60 30 42 22 46 C26 64 38 74 50 78 Z" fill="currentColor"/><path d="M50 78 C64 60 70 42 78 46 C74 64 62 74 50 78 Z" fill="currentColor"/><path d="M50 78 C42 56 44 34 50 26 C56 34 58 56 50 78 Z" fill="currentColor" opacity="0.55"/></svg></div></div>
+
   <section id="features" class="section">
     <div class="wrap">
-      <div class="section-intro">
+      <div class="section-intro reveal">
         <h2>What's inside</h2>
         <p>A calm place to read the Gita — and a daily practice to keep returning to it.</p>
       </div>
       <div class="features">
-        {features.map((f) => (
-          <article class="card">
+        {features.map((f, i) => (
+          <article class="card reveal" style={`--d:${i * 70}ms`}>
             <span class="ic-wrap"><Icon name={f.icon} size={24} /></span>
             <h3>{f.title}</h3>
             <p>{f.body}</p>
@@ -82,9 +106,11 @@ const features = [
     </div>
   </section>
 
+  <div class="wrap"><div class="ornament reveal" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M50 78 C36 60 30 42 22 46 C26 64 38 74 50 78 Z" fill="currentColor"/><path d="M50 78 C64 60 70 42 78 46 C74 64 62 74 50 78 Z" fill="currentColor"/><path d="M50 78 C42 56 44 34 50 26 C56 34 58 56 50 78 Z" fill="currentColor" opacity="0.55"/></svg></div></div>
+
   <section class="section">
     <div class="wrap">
-      <div class="section-intro">
+      <div class="section-intro reveal">
         <h2>Free, always</h2>
         <p>
           The Gita has been shared freely for millennia — and Gita Daily keeps it that way. The full

@@ -38,6 +38,7 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [defaultS
     <!-- Apply the saved theme before paint to avoid a flash of the wrong theme. -->
     <script is:inline>
       (function () {
+        document.documentElement.classList.add('js');
         try {
           var t = localStorage.getItem('theme');
           if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
@@ -153,6 +154,25 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [defaultS
               mb.setAttribute('aria-expanded', 'false');
             }
           });
+        }
+
+        // Gentle scroll reveal
+        var reveals = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window && reveals.length) {
+          var io = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (en) {
+                if (en.isIntersecting) {
+                  en.target.classList.add('in');
+                  io.unobserve(en.target);
+                }
+              });
+            },
+            { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
+          );
+          reveals.forEach(function (el) { io.observe(el); });
+        } else {
+          reveals.forEach(function (el) { el.classList.add('in'); });
         }
       })();
     </script>

@@ -12,11 +12,33 @@ const faqs = [
   { q: 'I’m having trouble signing in.', a: 'Make sure you’re connected to the internet and using the same email or Google/Apple account you signed up with. If it still won’t work, email us and we’ll help.' },
   { q: 'How do I delete my account or data?', a: 'Email us from the address on your account and we’ll delete your account and associated data. See the Privacy Policy for details.' },
 ];
+
+const site = (Astro.site?.href ?? 'https://gitadaily.org/').replace(/\/$/, '');
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site },
+      { '@type': 'ListItem', position: 2, name: 'Support', item: `${site}/support` },
+    ],
+  },
+];
 ---
 
 <Base
   title="Support — Gita Daily"
   description="Help with Gita Daily: FAQs on languages, reminders, saving verses, accounts, and how to contact us."
+  schema={schema}
 >
   <article class="wrap prose">
     <h1>Support</h1>

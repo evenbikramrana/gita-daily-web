@@ -4,6 +4,34 @@ import Icon from '../components/Icon.astro';
 
 const base = import.meta.env.BASE_URL;
 const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+const site = (Astro.site?.href ?? 'https://gitadaily.org/').replace(/\/$/, '');
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Gita Daily',
+    url: site,
+    logo: `${site}/og.png`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Gita Daily',
+    url: site,
+    inLanguage: ['en', 'hi', 'ne'],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MobileApplication',
+    name: 'Gita Daily',
+    operatingSystem: 'ANDROID',
+    applicationCategory: 'LifestyleApplication',
+    description:
+      'A mood-led Bhagavad Gita companion — read the whole Gita free in English, Hindi and Nepali, with a daily verse, saved verses, streaks and gentle reminders.',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  },
+];
 
 const features = [
   { icon: 'compass', title: 'Led by how you feel', body: 'Start from a mood — anxious, restless, grateful, lost — and meet a verse chosen for that moment.' },
@@ -18,6 +46,7 @@ const features = [
 <Base
   title="Gita Daily — a mood-led Bhagavad Gita companion"
   description="Read the whole Bhagavad Gita free in English, Hindi and Nepali. Start from how you feel, get a daily verse, save what moves you, and build a gentle reading streak."
+  schema={schema}
 >
   <section class="hero">
     <div class="wrap">

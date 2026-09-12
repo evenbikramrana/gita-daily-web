@@ -15,9 +15,32 @@ const next = chapter.number < data.chapters.length ? data.chapters[chapter.numbe
 
 const title = `Bhagavad Gita Chapter ${chapter.number}: ${chapter.en} — all ${chapter.verseCount} verses`;
 const description = `Read Bhagavad Gita Chapter ${chapter.number} (${chapter.title} · ${chapter.en}) in full — original Sanskrit with English, Hindi and Nepali translations and context. ${chapter.theme}.`;
+
+const site = (Astro.site?.href ?? 'https://gitadaily.org/').replace(/\/$/, '');
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site },
+      { '@type': 'ListItem', position: 2, name: 'Read the Gita', item: `${site}/gita` },
+      { '@type': 'ListItem', position: 3, name: `Chapter ${chapter.number}`, item: `${site}/gita/${chapter.number}` },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: `Bhagavad Gita, Chapter ${chapter.number}: ${chapter.en}`,
+    alternateName: chapter.title,
+    url: `${site}/gita/${chapter.number}`,
+    inLanguage: ['sa', 'en', 'hi', 'ne'],
+    isPartOf: { '@type': 'Book', name: 'The Bhagavad Gita', url: `${site}/gita` },
+    about: chapter.theme,
+  },
+];
 ---
 
-<Base title={title} description={description}>
+<Base title={title} description={description} schema={schema}>
   <article class="wrap reader" data-lang="en" id="reader">
     <div class="reader-head">
       <nav class="breadcrumb">
@@ -38,20 +61,24 @@ const description = `Read Bhagavad Gita Chapter ${chapter.number} (${chapter.tit
       {chapter.verses.map((v) => (
         <section class="verse" id={`v${v.number}`}>
           <div class="verse-num"><a href={`#v${v.number}`}>{chapter.number}.{v.number}</a></div>
-          <p class="sanskrit">{v.sanskrit}</p>
+          <p class="sanskrit" lang="sa">{v.sanskrit}</p>
 
-          {v.en && <p class="meaning" data-tr="en">{v.en}</p>}
-          {v.hi && <p class="meaning deva" data-tr="hi">{v.hi}</p>}
-          {v.ne && <p class="meaning deva" data-tr="ne">{v.ne}</p>}
+          {v.en && <p class="meaning" data-tr="en" lang="en">{v.en}</p>}
+          {v.hi && <p class="meaning deva" data-tr="hi" lang="hi">{v.hi}</p>}
+          {v.ne && <p class="meaning deva" data-tr="ne" lang="ne">{v.ne}</p>}
+
+          {v.enBy && <p class="byline" data-tr="en">— {v.enBy}</p>}
+          {v.hiBy && <p class="byline" data-tr="hi">— {v.hiBy}</p>}
+          {v.neBy && <p class="byline" data-tr="ne">— {v.neBy}</p>}
 
           {v.contextEn && (
-            <div class="context" data-tr="en"><span class="label">Context</span><p>{v.contextEn}</p></div>
+            <div class="context" data-tr="en"><span class="label">Context</span><p lang="en">{v.contextEn}</p></div>
           )}
           {v.contextHi && (
-            <div class="context" data-tr="hi"><span class="label">संदर्भ</span><p class="deva">{v.contextHi}</p></div>
+            <div class="context" data-tr="hi"><span class="label">संदर्भ</span><p class="deva" lang="hi">{v.contextHi}</p></div>
           )}
           {v.contextNe && (
-            <div class="context" data-tr="ne"><span class="label">सन्दर्भ</span><p class="deva">{v.contextNe}</p></div>
+            <div class="context" data-tr="ne"><span class="label">सन्दर्भ</span><p class="deva" lang="ne">{v.contextNe}</p></div>
           )}
         </section>
       ))}

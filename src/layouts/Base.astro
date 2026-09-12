@@ -5,10 +5,12 @@ import Icon from '../components/Icon.astro';
 export interface Props {
   title: string;
   description: string;
+  /** Page-specific JSON-LD (object or array). Falls back to a WebSite schema. */
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
-const { title, description } = Astro.props;
+const { title, description, schema } = Astro.props;
 
-const base = import.meta.env.BASE_URL; // e.g. '/gita-daily-web/'
+const base = import.meta.env.BASE_URL;
 const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImage = new URL(withBase('og.png'), Astro.site).href;
@@ -19,16 +21,13 @@ const nav = [
   { href: withBase('support'), label: 'Support' },
 ];
 
-const jsonLd = {
+const defaultSchema = {
   '@context': 'https://schema.org',
-  '@type': 'MobileApplication',
+  '@type': 'WebSite',
   name: 'Gita Daily',
-  operatingSystem: 'ANDROID',
-  applicationCategory: 'LifestyleApplication',
-  description:
-    'A mood-led Bhagavad Gita companion — read the whole Gita free in English, Hindi and Nepali, with a daily verse, saved verses, streaks and gentle reminders.',
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  url: new URL(base, Astro.site).href,
 };
+const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [defaultSchema];
 ---
 
 <!doctype html>
@@ -72,7 +71,7 @@ const jsonLd = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    {schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
   </head>
   <body>
     <header class="site-header">

@@ -10,7 +10,7 @@ const faqs = [
   { q: 'How do daily reminders work?', a: 'You can turn on a gentle daily reminder and pick a time in Settings. Reminders are scheduled on your device — turn them off any time.' },
   { q: 'How do I save verses and build a streak?', a: 'Tap the heart on any verse to save it to your collection. Reading each day quietly grows your streak — no pressure, just a gentle nudge to return.' },
   { q: 'I’m having trouble signing in.', a: 'Make sure you’re connected to the internet and using the same email or Google/Apple account you signed up with. If it still won’t work, email us and we’ll help.' },
-  { q: 'How do I delete my account or data?', a: 'Email us from the address on your account and we’ll delete your account and associated data. See the Privacy Policy for details.' },
+  { q: 'How do I delete my account or data?', a: 'You can delete your account and all associated data right in the app — Settings › Account › Delete account. Or email us from the address on your account and we’ll do it for you. See the Privacy Policy for details.' },
 ];
 
 const site = (Astro.site?.href ?? 'https://gitadaily.org/').replace(/\/$/, '');
@@ -40,27 +40,128 @@ const schema = [
   description="Help with Gita Daily: FAQs on languages, reminders, saving verses, accounts, and how to contact us."
   schema={schema}
 >
-  <article class="wrap prose">
-    <h1>Support</h1>
-    <p class="updated">We're a small project and happy to help.</p>
+  <section class="wrap support">
+    <header class="support-head reveal">
+      <h1>Support</h1>
+      <p class="sub">We're a small project, and happy to help.</p>
+    </header>
 
-    <p>
-      The quickest way to reach us is by email:
-      <a href={`mailto:${email}`}>{email}</a>. We usually reply within a few days.
-    </p>
+    <div class="contact-card reveal" style="--d:80ms">
+      <span class="cc-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" />
+        </svg>
+      </span>
+      <div>
+        <p class="cc-title">Email us</p>
+        <p class="cc-body">
+          The quickest way to reach us is <a href={`mailto:${email}`}>{email}</a>. We usually reply
+          within a few days.
+        </p>
+      </div>
+    </div>
 
-    <h2>Frequently asked questions</h2>
-    {faqs.map((f) => (
-      <section>
-        <h3>{f.q}</h3>
-        <p>{f.a}</p>
-      </section>
-    ))}
+    <h2 class="faq-title reveal">Frequently asked questions</h2>
+    <div class="faq-grid">
+      {faqs.map((f, i) => (
+        <article class="faq-card reveal" style={`--d:${120 + i * 60}ms`}>
+          <h3>{f.q}</h3>
+          <p>{f.a}</p>
+        </article>
+      ))}
+    </div>
 
-    <h2>Still need help?</h2>
-    <p>
-      Email <a href={`mailto:${email}`}>{email}</a> with your question and, if it's about a bug, the
-      device you're using. You can also review our <a href={withBase('privacy')}>Privacy Policy</a>.
-    </p>
-  </article>
+    <div class="help-cta reveal">
+      <h2>Still need help?</h2>
+      <p>
+        Email <a href={`mailto:${email}`}>{email}</a> with your question and, if it's about a bug,
+        the device you're using. You can also review our
+        <a href={withBase('privacy')}>Privacy Policy</a>.
+      </p>
+    </div>
+  </section>
 </Base>
+
+<style>
+  .support {
+    max-width: var(--content);
+    padding-top: var(--s7);
+    padding-bottom: var(--s8);
+  }
+  .support-head h1 { margin-bottom: 0.12em; }
+  .support-head .sub { color: var(--muted); margin: 0 0 var(--s6); font-size: 1.05rem; }
+
+  /* Contact panel — a soft teal-tinted card that anchors the page. */
+  .contact-card {
+    display: flex;
+    gap: var(--s4);
+    align-items: flex-start;
+    padding: var(--s5);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: color-mix(in srgb, var(--teal) 7%, var(--paper));
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--s7);
+  }
+  .cc-icon {
+    flex: none;
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+    display: grid;
+    place-items: center;
+    background: var(--teal-soft);
+    color: var(--teal);
+  }
+  .cc-title {
+    margin: 0 0 4px;
+    font-family: var(--display);
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 1.05rem;
+  }
+  .cc-body { margin: 0; color: var(--ink-soft); line-height: 1.6; }
+
+  .faq-title { margin-bottom: var(--s5); }
+
+  /* FAQ as distinct cards with clear breathing room between them. */
+  .faq-grid { display: grid; gap: var(--s4); }
+  .faq-card {
+    padding: var(--s5);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    /* Subtle lift that reads in both themes: darkens paper slightly in light,
+       lifts off near-black in dark. */
+    background: color-mix(in srgb, var(--ink) 3.5%, var(--paper));
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  }
+  .faq-card:hover {
+    box-shadow: var(--shadow);
+    border-color: color-mix(in srgb, var(--teal) 30%, var(--line));
+  }
+  .faq-card h3 {
+    margin: 0 0 var(--s2);
+    color: var(--ink);
+    font-size: 1.08rem;
+    line-height: 1.35;
+  }
+  .faq-card p { margin: 0; color: var(--muted); line-height: 1.65; }
+
+  /* Closing call-to-action — warm saffron tint to distinguish it from the FAQ. */
+  .help-cta {
+    margin-top: var(--s7);
+    text-align: center;
+    padding: var(--s6) var(--s5);
+    border-radius: var(--radius);
+    background: color-mix(in srgb, var(--accent) 8%, var(--paper));
+    border: 1px solid var(--line);
+  }
+  .help-cta h2 { margin: 0 0 var(--s2); }
+  .help-cta p { margin: 0 auto; max-width: 48ch; color: var(--ink-soft); line-height: 1.6; }
+
+  @media (max-width: 520px) {
+    .contact-card { flex-direction: column; gap: var(--s3); }
+    .faq-card { padding: var(--s4); }
+  }
+</style>

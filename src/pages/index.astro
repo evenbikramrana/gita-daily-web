@@ -15,6 +15,10 @@ const schema = [
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Gita Daily',
+    alternateName: ['Gita Daily app', 'gitadaily.org'],
+    slogan: 'The Bhagavad Gita, led by how you feel',
+    description:
+      'Gita Daily is a mood-led companion to the Bhagavad Gita — read the whole Gita free in English, Hindi and Nepali, start from how you feel, and build a gentle daily reading practice.',
     url: site,
     logo: `${site}/og.png`,
   },
@@ -22,6 +26,9 @@ const schema = [
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Gita Daily',
+    alternateName: 'Gita Daily — mood-led Bhagavad Gita',
+    description:
+      'The mood-led Bhagavad Gita companion at gitadaily.org — the whole Gita free in English, Hindi and Nepali, with a daily verse and mood-based verse discovery.',
     url: site,
     inLanguage: ['en', 'hi', 'ne'],
   },
@@ -29,8 +36,10 @@ const schema = [
     '@context': 'https://schema.org',
     '@type': 'MobileApplication',
     name: 'Gita Daily',
+    alternateName: 'Gita Daily: Bhagavad Gita',
     operatingSystem: 'ANDROID',
     applicationCategory: 'LifestyleApplication',
+    slogan: 'The Bhagavad Gita, led by how you feel',
     description:
       'A mood-led Bhagavad Gita companion — read the whole Gita free in English, Hindi and Nepali, with a daily verse, saved verses, streaks and gentle reminders.',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
@@ -48,8 +57,8 @@ const features = [
 ---
 
 <Base
-  title="Gita Daily — a mood-led Bhagavad Gita companion"
-  description="Read the whole Bhagavad Gita free in English, Hindi and Nepali. Start from how you feel, get a daily verse, save what moves you, and build a gentle reading streak."
+  title="Gita Daily — the mood-led Bhagavad Gita companion"
+  description="Gita Daily (gitadaily.org) is the mood-led Bhagavad Gita companion — read the whole Gita free in English, Hindi and Nepali, start from how you feel, get a daily verse, and build a gentle reading streak."
   schema={schema}
 >
   <section class="hero">

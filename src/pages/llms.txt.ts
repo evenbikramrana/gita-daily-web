@@ -30,6 +30,15 @@ The Bhagavad Gita is free to read forever here, with no paywall and no account r
 - [All chapters index](${SITE}/gita): every chapter, with English names and Sanskrit titles.
 ${chapterLines}
 
+Every verse also has its own page at ${SITE}/gita/{chapter}/{verse} — for example ${SITE}/gita/2/47 — with the original Sanskrit, English/Hindi/Nepali translations, translator attribution, and context.
+
+## Guides
+Plain-language explainers, each citing specific verses:
+- [What the Bhagavad Gita says about anxiety](${SITE}/guides/bhagavad-gita-on-anxiety)
+- [The Bhagavad Gita for beginners: where to start](${SITE}/guides/bhagavad-gita-for-beginners)
+- [What the Bhagavad Gita says about anger](${SITE}/guides/bhagavad-gita-on-anger)
+- [All guides](${SITE}/guides)
+
 ## About & policies
 - [Home](${SITE}/): about Gita Daily and the app.
 - [Support & FAQ](${SITE}/support): common questions about the app and reading the Gita.

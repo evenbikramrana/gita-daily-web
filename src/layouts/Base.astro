@@ -18,6 +18,7 @@ const ogImage = new URL(withBase('og.png'), Astro.site).href;
 const nav = [
   { href: withBase(''), label: 'Home' },
   { href: withBase('gita'), label: 'Read the Gita' },
+  { href: withBase('guides'), label: 'Guides' },
   { href: withBase('support'), label: 'Support' },
 ];
 
@@ -25,6 +26,9 @@ const defaultSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Gita Daily',
+  alternateName: 'Gita Daily — mood-led Bhagavad Gita',
+  description:
+    'The mood-led Bhagavad Gita companion at gitadaily.org — the whole Gita free in English, Hindi and Nepali.',
   url: new URL(base, Astro.site).href,
 };
 const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [defaultSchema];
@@ -52,13 +56,28 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [defaultS
     <meta name="theme-color" content="#E5731F" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Brand fonts (same as the app): Bricolage Grotesque + Noto Serif Devanagari -->
+    <!-- Brand fonts (same as the app): Bricolage Grotesque + Noto Serif Devanagari.
+         Loaded non-render-blocking (preload + media swap) so the page paints
+         immediately with a fallback and swaps in the brand fonts when ready. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet"
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Noto+Serif+Devanagari:wght@400..600&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Noto+Serif+Devanagari:wght@400..600&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Noto+Serif+Devanagari:wght@400..600&display=swap"
+      />
+    </noscript>
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Gita Daily" />

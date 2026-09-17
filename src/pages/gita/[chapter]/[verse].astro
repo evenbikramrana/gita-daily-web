@@ -1,0 +1,155 @@
+---
+import Base from '../../../layouts/Base.astro';
+import data from '../../../data/gita.json';
+
+export function getStaticPaths() {
+  const paths: any[] = [];
+  const chapters = data.chapters;
+  // Flat sequence so prev/next can cross chapter boundaries.
+  const flat: { ch: number; n: number }[] = [];
+  for (const c of chapters) for (const v of c.verses) flat.push({ ch: c.number, n: v.number });
+
+  chapters.forEach((c) => {
+    c.verses.forEach((v, i) => {
+      const idxInFlat = flat.findIndex((f) => f.ch === c.number && f.n === v.number);
+      paths.push({
+        params: { chapter: String(c.number), verse: String(v.number) },
+        props: {
+          chapter: c,
+          verse: v,
+          prev: idxInFlat > 0 ? flat[idxInFlat - 1] : null,
+          next: idxInFlat < flat.length - 1 ? flat[idxInFlat + 1] : null,
+        },
+      });
+    });
+  });
+  return paths;
+}
+
+const { chapter, verse, prev, next } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+const site = (Astro.site?.href ?? 'https://gitadaily.org/').replace(/\/$/, '');
+
+const ref = `${chapter.number}.${verse.number}`;
+const clip = (s: string, n = 155) => {
+  const t = (s || '').replace(/\s+/g, ' ').trim();
+  return t.length <= n ? t : t.slice(0, t.lastIndexOf(' ', n)).trim() + '…';
+};
+
+const title = `Bhagavad Gita ${ref}: meaning, Sanskrit & translation`;
+const description = verse.en
+  ? `Bhagavad Gita ${ref} — "${clip(verse.en, 120)}" Read the original Sanskrit with English, Hindi and Nepali translations and context.`
+  : `Bhagavad Gita chapter ${chapter.number}, verse ${verse.number} — original Sanskrit with English, Hindi and Nepali translations and context.`;
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: site },
+      { '@type': 'ListItem', position: 2, name: 'Read the Gita', item: `${site}/gita` },
+      { '@type': 'ListItem', position: 3, name: `Chapter ${chapter.number}`, item: `${site}/gita/${chapter.number}` },
+      { '@type': 'ListItem', position: 4, name: `Verse ${ref}`, item: `${site}/gita/${chapter.number}/${verse.number}` },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: `Bhagavad Gita ${ref}`,
+    url: `${site}/gita/${chapter.number}/${verse.number}`,
+    inLanguage: ['sa', 'en', 'hi', 'ne'],
+    isPartOf: {
+      '@type': 'CreativeWork',
+      name: `Bhagavad Gita, Chapter ${chapter.number}: ${chapter.en}`,
+      url: `${site}/gita/${chapter.number}`,
+    },
+    text: verse.en || undefined,
+    ...(verse.enBy ? { translator: { '@type': 'Person', name: verse.enBy } } : {}),
+  },
+];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <article class="wrap reader single-verse" data-lang="en" id="reader">
+    <div class="reader-head">
+      <nav class="breadcrumb">
+        <a href={withBase('')}>Home</a> › <a href={withBase('gita')}>Read the Gita</a> ›
+        <a href={withBase(`gita/${chapter.number}`)}>Chapter {chapter.number}</a> › Verse {ref}
+      </nav>
+      <div class="wordmark-deva">{chapter.title}</div>
+      <h1>Bhagavad Gita {ref}</h1>
+      <p><a href={withBase(`gita/${chapter.number}`)}>Chapter {chapter.number} · {chapter.en}</a></p>
+
+      <div class="lang-toggle" role="group" aria-label="Translation language">
+        <button type="button" data-set-lang="en" aria-pressed="true">English</button>
+        <button type="button" data-set-lang="hi" aria-pressed="false">हिन्दी</button>
+        <button type="button" data-set-lang="ne" aria-pressed="false">नेपाली</button>
+      </div>
+    </div>
+
+    <section class="verse">
+      <p class="sanskrit" lang="sa">{verse.sanskrit}</p>
+
+      {verse.en && <p class="meaning" data-tr="en" lang="en">{verse.en}</p>}
+      {verse.hi && <p class="meaning deva" data-tr="hi" lang="hi">{verse.hi}</p>}
+      {verse.ne && <p class="meaning deva" data-tr="ne" lang="ne">{verse.ne}</p>}
+
+      {verse.enBy && <p class="byline" data-tr="en">— {verse.enBy}</p>}
+      {verse.hiBy && <p class="byline" data-tr="hi">— {verse.hiBy}</p>}
+      {verse.neBy && <p class="byline" data-tr="ne">— {verse.neBy}</p>}
+
+      {verse.contextEn && (
+        <div class="context" data-tr="en"><span class="label">Context</span><p lang="en">{verse.contextEn}</p></div>
+      )}
+      {verse.contextHi && (
+        <div class="context" data-tr="hi"><span class="label">संदर्भ</span><p class="deva" lang="hi">{verse.contextHi}</p></div>
+      )}
+      {verse.contextNe && (
+        <div class="context" data-tr="ne"><span class="label">सन्दर्भ</span><p class="deva" lang="ne">{verse.contextNe}</p></div>
+      )}
+    </section>
+
+    <div class="app-cta">
+      <h3>Carry this verse with you</h3>
+      <p>Save the verses that speak to you, get a verse each day, and read by how you feel — in the Gita Daily app.</p>
+      <span class="btn btn-primary" aria-disabled="true">Coming soon to Google Play</span>
+    </div>
+
+    <nav class="chapter-nav">
+      {prev ? (
+        <a href={withBase(`gita/${prev.ch}/${prev.n}`)}>
+          <span class="dir">← Previous</span><span class="name">Gita {prev.ch}.{prev.n}</span>
+        </a>
+      ) : (
+        <span></span>
+      )}
+      {next ? (
+        <a class="nx" href={withBase(`gita/${next.ch}/${next.n}`)}>
+          <span class="dir">Next →</span><span class="name">Gita {next.ch}.{next.n}</span>
+        </a>
+      ) : (
+        <span></span>
+      )}
+    </nav>
+  </article>
+
+  <script is:inline>
+    (function () {
+      var r = document.getElementById('reader');
+      var btns = document.querySelectorAll('[data-set-lang]');
+      var KEY = 'gita_lang';
+      function set(lang) {
+        r.setAttribute('data-lang', lang);
+        btns.forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.getAttribute('data-set-lang') === lang));
+        });
+        try { localStorage.setItem(KEY, lang); } catch (e) {}
+      }
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () { set(b.getAttribute('data-set-lang')); });
+      });
+      try { var s = localStorage.getItem(KEY); if (s && s !== 'en') set(s); } catch (e) {}
+    })();
+  </script>
+</Base>

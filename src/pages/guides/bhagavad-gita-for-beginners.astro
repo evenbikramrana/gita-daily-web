@@ -1,0 +1,77 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+---
+
+<Guide
+  title="The Bhagavad Gita for beginners: where to start"
+  description="New to the Bhagavad Gita? A gentle beginner's guide — what it is, the three paths it teaches, which chapters to read first, and the single verse to begin with."
+  slug="bhagavad-gita-for-beginners"
+  datePublished="2026-09-17"
+>
+  <p>
+    The Bhagavad Gita is a 700-verse conversation set on a battlefield, between the warrior Arjuna
+    and Krishna, his charioteer and guide. Arjuna is about to fight a war he cannot bear to fight,
+    and in his crisis he asks the questions we all eventually ask: What is the right thing to do?
+    How do I act when every choice costs something? What lasts, when everything changes?
+  </p>
+  <p>
+    You don't need any background to begin. Here's a short map so your first reading feels like an
+    open door rather than a wall.
+  </p>
+
+  <h2>What the Gita is (and isn't)</h2>
+  <p>
+    It's part of the great epic the Mahabharata, but it reads as a self-contained dialogue. It isn't
+    a rulebook; it's a set of answers to a person in genuine distress. That's why it stays useful
+    3,000 years later — the situation is timeless. There are <a href={withBase('gita')}>18 chapters
+    and 701 verses</a>, and you can read them slowly, a few at a time.
+  </p>
+
+  <h2>The three paths</h2>
+  <p>
+    Much of the Gita organizes itself around three ways to live a spiritual life — you don't choose
+    one and reject the others; they braid together:
+  </p>
+  <ul>
+    <li><strong>Karma yoga</strong> — the path of action: doing your work wholeheartedly without clinging to the reward (<a href={withBase('gita/3')}>Chapter 3</a>).</li>
+    <li><strong>Bhakti yoga</strong> — the path of devotion and love (<a href={withBase('gita/12')}>Chapter 12</a>).</li>
+    <li><strong>Jnana yoga</strong> — the path of knowledge: seeing clearly what is real and lasting (<a href={withBase('gita/13')}>Chapter 13</a>).</li>
+  </ul>
+
+  <h2>Which chapters to read first</h2>
+  <p>
+    You don't have to read straight through. A gentle first pass:
+  </p>
+  <ul>
+    <li><a href={withBase('gita/2')}>Chapter 2</a> — often called "the Gita in miniature." If you read only one chapter, read this.</li>
+    <li><a href={withBase('gita/12')}>Chapter 12</a> — short, warm, and the most human: what a good-hearted person actually looks like.</li>
+    <li><a href={withBase('gita/6')}>Chapter 6</a> — on meditation and steadying a restless mind.</li>
+    <li><a href={withBase('gita/18')}>Chapter 18</a> — the conclusion that gathers everything together.</li>
+  </ul>
+
+  <h2>The one verse to begin with</h2>
+  <p>
+    If you want a single line to carry, start here:
+  </p>
+  <blockquote>
+    <p>"Your right is to action alone, never to its fruits. Let not the fruit of action be your motive, nor let your attachment be to inaction."</p>
+    <cite><a href={withBase('gita/2/47')}>Bhagavad Gita 2.47</a></cite>
+  </blockquote>
+  <p>
+    Do your best; release the outcome. Nearly everything else in the Gita is an unfolding of that.
+  </p>
+
+  <h2>How to read it</h2>
+  <p>
+    Go slowly. A verse or two at a time is plenty — the Gita rewards return more than speed. Read the
+    Sanskrit aloud if you like, then the meaning, then sit with the context. Don't worry about
+    understanding everything at once; let the lines you need find you. On Gita Daily every verse
+    comes with translations in English, Hindi and Nepali and a short context, and you can begin from
+    a mood rather than a chapter number when that's easier.
+  </p>
+  <p>
+    Ready? <a href={withBase('gita/2')}>Open Chapter 2</a> and begin.
+  </p>
+</Guide>

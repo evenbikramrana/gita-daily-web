@@ -1,12 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
 import data from '../../data/gita.json';
+import { chapterIntros } from '../../data/chapterIntros';
 
 export function getStaticPaths() {
   return data.chapters.map((c) => ({ params: { chapter: String(c.number) }, props: { chapter: c } }));
 }
 
 const { chapter } = Astro.props;
+const ci = chapterIntros[chapter.number];
 const base = import.meta.env.BASE_URL;
 const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
 
@@ -36,6 +38,7 @@ const schema = [
     inLanguage: ['sa', 'en', 'hi', 'ne'],
     isPartOf: { '@type': 'Book', name: 'The Bhagavad Gita', url: `${site}/gita` },
     about: chapter.theme,
+    ...(ci?.intro ? { abstract: ci.intro } : {}),
   },
 ];
 ---
@@ -57,10 +60,29 @@ const schema = [
       </div>
     </div>
 
+    {ci && (
+      <div class="chapter-intro">
+        <p>{ci.intro}</p>
+        {ci.keyVerses?.length > 0 && (
+          <div class="key-verses">
+            <h2>Key verses in this chapter</h2>
+            <ul>
+              {ci.keyVerses.map((k) => (
+                <li>
+                  <a href={withBase(`gita/${chapter.number}/${k.n}`)}>Gita {chapter.number}.{k.n}</a>
+                  <span> — {k.note}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    )}
+
     <div class="verses">
       {chapter.verses.map((v) => (
         <section class="verse" id={`v${v.number}`}>
-          <div class="verse-num"><a href={`#v${v.number}`}>{chapter.number}.{v.number}</a></div>
+          <div class="verse-num"><a href={withBase(`gita/${chapter.number}/${v.number}`)}>{chapter.number}.{v.number}</a></div>
           <p class="sanskrit" lang="sa">{v.sanskrit}</p>
 
           {v.en && <p class="meaning" data-tr="en" lang="en">{v.en}</p>}

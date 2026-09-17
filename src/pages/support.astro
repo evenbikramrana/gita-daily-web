@@ -88,80 +88,74 @@ const schema = [
     padding-top: var(--s7);
     padding-bottom: var(--s8);
   }
-  .support-head h1 { margin-bottom: 0.12em; }
-  .support-head .sub { color: var(--muted); margin: 0 0 var(--s6); font-size: 1.05rem; }
+  .support-head h1 { margin-bottom: 0.15em; }
+  .support-head .sub { color: var(--muted); margin: 0 0 var(--s6); font-size: 1.1rem; }
 
-  /* Contact panel — a soft teal-tinted card that anchors the page. */
+  /* Contact panel — bordered editorial block with a solid accent icon. */
   .contact-card {
     display: flex;
     gap: var(--s4);
     align-items: flex-start;
     padding: var(--s5);
-    border: 1px solid var(--line);
+    border: 1.5px solid var(--line-strong);
     border-radius: var(--radius);
-    background: color-mix(in srgb, var(--teal) 7%, var(--paper));
-    box-shadow: var(--shadow-sm);
+    background: none;
     margin-bottom: var(--s7);
   }
   .cc-icon {
     flex: none;
     width: 46px;
     height: 46px;
-    border-radius: 13px;
+    border-radius: var(--radius-sm);
     display: grid;
     place-items: center;
-    background: var(--teal-soft);
-    color: var(--teal);
+    background: var(--accent);
+    color: #fff;
   }
   .cc-title {
     margin: 0 0 4px;
     font-family: var(--display);
     font-weight: 700;
     color: var(--ink);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
   }
   .cc-body { margin: 0; color: var(--ink-soft); line-height: 1.6; }
 
-  .faq-title { margin-bottom: var(--s5); }
+  .faq-title { margin-bottom: var(--s2); }
 
-  /* FAQ as distinct cards with clear breathing room between them. */
-  .faq-grid { display: grid; gap: var(--s4); }
+  /* FAQ as hairline-ruled editorial rows. */
+  .faq-grid { display: grid; gap: 0; }
   .faq-card {
-    padding: var(--s5);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-sm);
-    /* Subtle lift that reads in both themes: darkens paper slightly in light,
-       lifts off near-black in dark. */
-    background: color-mix(in srgb, var(--ink) 3.5%, var(--paper));
-    box-shadow: var(--shadow-sm);
-    transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
-  }
-  .faq-card:hover {
-    box-shadow: var(--shadow);
-    border-color: color-mix(in srgb, var(--teal) 30%, var(--line));
+    padding: var(--s5) 0;
+    border: 0;
+    border-top: 1.5px solid var(--line-strong);
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
   }
   .faq-card h3 {
     margin: 0 0 var(--s2);
     color: var(--ink);
-    font-size: 1.08rem;
-    line-height: 1.35;
+    font-size: 1.15rem;
+    line-height: 1.3;
   }
   .faq-card p { margin: 0; color: var(--muted); line-height: 1.65; }
 
-  /* Closing call-to-action — warm saffron tint to distinguish it from the FAQ. */
+  /* Closing call-to-action — bold ink block. */
   .help-cta {
     margin-top: var(--s7);
-    text-align: center;
-    padding: var(--s6) var(--s5);
+    padding: var(--s6);
     border-radius: var(--radius);
-    background: color-mix(in srgb, var(--accent) 8%, var(--paper));
-    border: 1px solid var(--line);
+    background: var(--ink-block);
+    border: 0;
+    color: var(--on-ink);
   }
-  .help-cta h2 { margin: 0 0 var(--s2); }
-  .help-cta p { margin: 0 auto; max-width: 48ch; color: var(--ink-soft); line-height: 1.6; }
+  .help-cta h2 { margin: 0 0 var(--s2); color: var(--on-ink); }
+  .help-cta p { margin: 0; max-width: 60ch; color: var(--on-ink-soft); line-height: 1.6; }
+  .help-cta a { color: var(--accent); border-bottom: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); }
+  .help-cta a:hover { border-bottom-color: var(--accent); }
 
   @media (max-width: 520px) {
     .contact-card { flex-direction: column; gap: var(--s3); }
-    .faq-card { padding: var(--s4); }
   }
 </style>

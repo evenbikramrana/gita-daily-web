@@ -1,0 +1,72 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+---
+
+<Guide
+  title="What the Bhagavad Gita says about anger"
+  description="The Bhagavad Gita traces exactly how anger takes hold — from desire to fury to clouded judgment — and how to loosen its grip. The key verses, explained."
+  slug="bhagavad-gita-on-anger"
+  datePublished="2026-09-17"
+>
+  <p>
+    Anger gets unusually clear treatment in the Bhagavad Gita. Krishna doesn't moralize about it — he
+    diagnoses it, tracing the exact steps by which a calm mind ends up in flames, and pointing to
+    where the chain can be broken.
+  </p>
+
+  <h2>Where anger comes from</h2>
+  <p>
+    The Gita's most quoted passage on anger describes it as the child of thwarted desire — not a
+    first cause but a link in a chain.
+  </p>
+  <blockquote>
+    <p>"Dwelling on the objects of the senses breeds attachment; from attachment springs desire, and from desire comes anger."</p>
+    <cite><a href={withBase('gita/2/62')}>Bhagavad Gita 2.62</a></cite>
+  </blockquote>
+  <p>
+    Anger, in other words, is what desire does when it's blocked. This is oddly freeing: if you can
+    catch the fixation earlier — while it's still just wanting — you never reach the fire.
+  </p>
+
+  <h2>Why unchecked anger is so costly</h2>
+  <p>
+    The next verse follows the chain to its end, and it reads like a description of every decision
+    regretted in the heat of the moment.
+  </p>
+  <blockquote>
+    <p>"From anger comes confusion; from confusion, loss of memory; from loss of memory, the ruin of judgment — and then one is lost."</p>
+    <cite><a href={withBase('gita/2/63')}>Bhagavad Gita 2.63</a></cite>
+  </blockquote>
+  <p>
+    Anger doesn't just feel bad — it takes your clarity with it. That's why the Gita treats loosening
+    its grip as a matter of protecting your own good judgment, not just being nice.
+  </p>
+
+  <h2>Anger as a gate to ruin</h2>
+  <p>
+    Later, the Gita names anger among three forces to turn away from decisively.
+  </p>
+  <blockquote>
+    <p>"Lust, anger and greed — these are the three gates to self-ruin. Therefore let them go."</p>
+    <cite><a href={withBase('gita/16/21')}>Bhagavad Gita 16.21</a></cite>
+  </blockquote>
+
+  <h2>What steadiness looks like instead</h2>
+  <p>
+    The Gita's alternative isn't suppression — it's a mind no longer at the mercy of what it wants
+    and dreads. The <a href={withBase('gita/2/56')}>sage of steady wisdom (2.56)</a> is "free from
+    attachment, fear and anger," and <a href={withBase('gita/5/23')}>Chapter 5</a> praises the one
+    who can withstand the push of desire and anger before letting go of the body. Freedom from anger
+    is less about winning a fight with it and more about not lighting the fuse.
+  </p>
+
+  <h2>Where to read next</h2>
+  <p>
+    The heart of this teaching is in <a href={withBase('gita/2')}>Chapter 2</a>. For the wider map of
+    the qualities that free or bind us, see <a href={withBase('gita/16')}>Chapter 16</a>. And when
+    anger is actually present, opening a verse for that moment can be steadier than reading straight
+    through.
+  </p>
+</Guide>

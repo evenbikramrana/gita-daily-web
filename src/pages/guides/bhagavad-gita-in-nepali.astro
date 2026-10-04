@@ -1,0 +1,51 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+---
+
+<Guide
+  title="Read the Bhagavad Gita in Nepali (नेपाली)"
+  description="Read the full Bhagavad Gita in Nepali (भगवद्गीता नेपालीमा) — every verse in the original Sanskrit with a Nepali translation and context, free online. Switch between Nepali, Hindi and English any time."
+  slug="bhagavad-gita-in-nepali"
+  datePublished="2026-10-04"
+>
+  <p>
+    The Bhagavad Gita is read all over Nepal and by Nepali speakers everywhere, but a clear,
+    gentle Nepali reading of the whole text — verse by verse, with the original Sanskrit beside it —
+    is surprisingly hard to find online. Gita Daily offers exactly that: every one of the 701 verses
+    with a Nepali translation (नेपाली अनुवाद) and a short context, free to read.
+  </p>
+
+  <h2>What you get in Nepali</h2>
+  <p>
+    On every verse you can switch the translation to <strong>Nepali (नेपाली)</strong> and read the
+    meaning in plain, natural Nepali — not a word-for-word transliteration of Hindi, but genuine
+    Nepali with its own grammar and voice. Alongside it you'll find the original Sanskrit, and you can
+    switch to Hindi (हिन्दी) or English whenever you like. Each verse also carries a short note of
+    context, so you're never reading a line out of nowhere.
+  </p>
+
+  <h2>A note on the translation</h2>
+  <p>
+    The Nepali translations are carefully prepared and are being refined with native-speaker review,
+    so if a line can read more naturally, it will keep improving over time. The aim is simple: that a
+    Nepali reader feels the verse was written for them, in their own language.
+  </p>
+
+  <h2>Where to begin</h2>
+  <p>
+    A gentle first chapter to read in Nepali is <a href={withBase('gita/2')}>Chapter 2</a> — often
+    called the heart of the Gita. From there, <a href={withBase('gita/12')}>Chapter 12</a> on
+    devotion is short and warm. Or open the <a href={withBase('gita')}>full chapter index</a> and
+    pick wherever you feel drawn. A good single verse to sit with is
+    <a href={withBase('gita/2/47')}>Bhagavad Gita 2.47</a>.
+  </p>
+
+  <h2>On your phone, in Nepali</h2>
+  <p>
+    The free Gita Daily app keeps the Nepali reading in your pocket, adds a verse each day, and lets
+    you start from a mood to find a verse for the moment — all with the Nepali, Hindi and English
+    translations together. The whole scripture stays free, always.
+  </p>
+</Guide>

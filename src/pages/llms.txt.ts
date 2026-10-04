@@ -18,7 +18,7 @@ export const GET: APIRoute = () => {
 
 > Gita Daily is a free, mood-led companion to the Bhagavad Gita. Read the complete scripture — all ${chapters.length} chapters and ${total} verses — free online, in the original Sanskrit with English, Hindi (हिन्दी) and Nepali (नेपाली) translations and context for every verse.
 
-The Bhagavad Gita is free to read forever here, with no paywall and no account required to read. The website (gitadaily.org) is the reading home; the companion Android app adds a daily verse, mood-based verse discovery, saved verses, reading streaks, and gentle daily reminders — while the scripture itself always stays free.
+The Bhagavad Gita is free to read forever here, with no paywall and no account required to read. The website (gitadaily.org) is the reading home; the free companion Android app — on Google Play at https://play.google.com/store/apps/details?id=org.gitadaily.app — adds a daily verse, mood-based verse discovery, saved verses, reading streaks, and gentle daily reminders, while the scripture itself always stays free.
 
 ## Key facts
 - The Bhagavad Gita has ${chapters.length} chapters and ${total} verses.
@@ -34,6 +34,7 @@ Every verse also has its own page at ${SITE}/gita/{chapter}/{verse} — for exam
 
 ## Guides
 Plain-language explainers, each citing specific verses:
+- [Read the Bhagavad Gita in Nepali (नेपाली)](${SITE}/guides/bhagavad-gita-in-nepali)
 - [What the Bhagavad Gita says about anxiety](${SITE}/guides/bhagavad-gita-on-anxiety)
 - [The Bhagavad Gita for beginners: where to start](${SITE}/guides/bhagavad-gita-for-beginners)
 - [What the Bhagavad Gita says about anger](${SITE}/guides/bhagavad-gita-on-anger)

@@ -1,6 +1,8 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import data from '../../../data/gita.json';
+import { verseGuides } from '../../../data/verseGuides';
+import { guides } from '../../guides/index.astro';
 
 export function getStaticPaths() {
   const paths: any[] = [];
@@ -32,6 +34,11 @@ const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
 const site = (Astro.site?.href ?? 'https://gitadaily.org/').replace(/\/$/, '');
 
 const ref = `${chapter.number}.${verse.number}`;
+
+// Guides that cite or bear on this verse — internal links out to the guides.
+const relatedGuides = (verseGuides[ref] ?? [])
+  .map((slug) => guides.find((g) => g.slug === slug))
+  .filter((g): g is (typeof guides)[number] => Boolean(g));
 const clip = (s: string, n = 155) => {
   const t = (s || '').replace(/\s+/g, ' ').trim();
   return t.length <= n ? t : t.slice(0, t.lastIndexOf(' ', n)).trim() + '…';
@@ -109,6 +116,19 @@ const schema = [
         <div class="context" data-tr="ne"><span class="label">सन्दर्भ</span><p class="deva" lang="ne">{verse.contextNe}</p></div>
       )}
     </section>
+
+    {relatedGuides.length > 0 && (
+      <section class="related-guides" aria-label="Related guides">
+        <h2>Guides that explore this verse</h2>
+        <ul>
+          {relatedGuides.map((g) => (
+            <li>
+              <a href={withBase(`guides/${g.slug}`)}>{g.title}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
 
     <div class="app-cta">
       <h3>Carry this verse with you</h3>

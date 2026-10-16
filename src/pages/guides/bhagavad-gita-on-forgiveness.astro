@@ -1,0 +1,99 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+---
+
+<Guide
+  title="What the Bhagavad Gita says about forgiveness"
+  description="Forgiveness (kshama) is named among the Bhagavad Gita's highest qualities — a mark of strength, not weakness. The verses on forgiving others, and being forgiven, explained."
+  slug="bhagavad-gita-on-forgiveness"
+  datePublished="2026-10-17"
+  faq={[
+    {
+      q: 'What does the Bhagavad Gita say about forgiveness?',
+      a: 'The Gita treats forgiveness (kshama) as a divine quality and a source of strength, not weakness. It lists forgiveness among the virtues of a noble nature (16.3) and says the devotee who is free from malice and forgiving toward all is especially dear to God (12.13).',
+    },
+    {
+      q: 'Which Bhagavad Gita verse is about forgiveness?',
+      a: 'Verse 16.3 names forgiveness (kshama) among the qualities of one born to a divine nature. Verses 12.13–12.14 praise the one who is friendly, compassionate and forgiving. In 11.44, Arjuna himself asks Krishna for forgiveness, as a father forgives a son.',
+    },
+    {
+      q: 'Does the Gita see forgiveness as weakness?',
+      a: 'The opposite. It places forgiveness beside vigour, fortitude and fearlessness in its list of noble qualities (16.3), framing it as the composure of a strong, steady person — not the surrender of a weak one.',
+    },
+    {
+      q: 'How does the Bhagavad Gita say to forgive?',
+      a: 'By loosening the grip of anger, which it traces back to thwarted desire (2.62–2.63), and by cultivating an even, friendly disposition toward all (12.13). Forgiveness in the Gita is less a single act than a steady freedom from malice.',
+    },
+  ]}
+>
+  <p>
+    Forgiveness rarely feels like strength in the moment. It feels like losing — letting someone off,
+    swallowing what you were owed. The Bhagavad Gita quietly overturns that. In its accounting,
+    forgiveness — <em>kshama</em> — sits not among the soft virtues but among the marks of real
+    strength, listed in the same breath as courage and fortitude.
+  </p>
+
+  <h2>Forgiveness as a noble quality</h2>
+  <blockquote>
+    <p>"Vigour, forgiveness, fortitude, purity, freedom from malice and from pride — these belong to one born to a divine nature."</p>
+    <cite><a href={withBase('gita/16/3')}>Bhagavad Gita 16.3</a></cite>
+  </blockquote>
+  <p>
+    Look at the company forgiveness keeps here: vigour and fortitude on one side, freedom from malice
+    and pride on the other. The Gita is making a claim — that forgiving is what a strong, unpetty person
+    does, and that the inability to forgive is closer to weakness than to power.
+  </p>
+
+  <h2>The person who forgives is dear</h2>
+  <blockquote>
+    <p>"One who has no hatred for any being, who is friendly and compassionate, free from possessiveness and ego, even in pain and pleasure, and forgiving… that devotee is dear to me."</p>
+    <cite><a href={withBase('gita/12/13')}>Bhagavad Gita 12.13–14</a></cite>
+  </blockquote>
+  <p>
+    Here forgiveness is not an isolated act but a whole disposition — friendliness, compassion, freedom
+    from grudge-hoarding. The Gita's picture of a person "dear to God" is not someone flawless; it is
+    someone who has stopped carrying malice. That, it suggests, is a lighter and freer way to live.
+  </p>
+
+  <h2>Understanding the anger you're forgiving</h2>
+  <p>
+    The Gita also gives you the mechanism beneath a grievance, which makes it easier to release. Anger,
+    it says, is not a first cause — it is downstream of a wanted thing being blocked.
+  </p>
+  <blockquote>
+    <p>"From attachment springs desire, and from desire comes anger. From anger comes delusion, and from delusion, loss of memory and judgment."</p>
+    <cite><a href={withBase('gita/2/62')}>Bhagavad Gita 2.62–63</a></cite>
+  </blockquote>
+  <p>
+    Seen this way, a resentment you keep rehearsing is a desire you are still gripping. Forgiveness, in
+    the Gita's terms, is not pretending the harm didn't matter; it is loosening your hold on the
+    outcome you wanted, so the anger has less to feed on.
+  </p>
+
+  <h2>Even the hero asks to be forgiven</h2>
+  <p>
+    And the Gita does not reserve forgiveness for saints. In one of its tenderest moments, Arjuna —
+    having glimpsed Krishna's vast true form — realises how casually he had treated his friend, and
+    simply asks.
+  </p>
+  <blockquote>
+    <p>"As a father forgives his son, a friend his friend, a lover the beloved — so, O God, forgive me."</p>
+    <cite><a href={withBase('gita/11/44')}>Bhagavad Gita 11.44</a></cite>
+  </blockquote>
+  <p>
+    It is a reminder that forgiveness runs both directions. Most of us need to extend it and to ask for
+    it, and the Gita treats both as ordinary, human and necessary — the way a father, a friend, a lover
+    forgives, because the bond matters more than the debt.
+  </p>
+
+  <h2>Where to read next</h2>
+  <p>
+    If what you're forgiving is really unresolved anger, read
+    <a href={withBase('guides/bhagavad-gita-on-anger')}>the Gita on anger</a> for how it takes hold and
+    loosens. <a href={withBase('gita/12')}>Chapter 12</a> on devotion and
+    <a href={withBase('gita/16')}>Chapter 16</a> on noble and base qualities are where these verses
+    live. Or open Gita Daily and let a verse meet what you're carrying today.
+  </p>
+</Guide>

@@ -1,0 +1,108 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+---
+
+<Guide
+  title="What the Bhagavad Gita says about overthinking and the restless mind"
+  description="The Bhagavad Gita calls the mind restless and hard to hold — and gives a precise method for a mind that won't stop. Verses 6.26, 6.35, 2.67 and 2.70, explained."
+  slug="bhagavad-gita-on-overthinking"
+  datePublished="2026-10-17"
+  faq={[
+    {
+      q: 'What does the Bhagavad Gita say about overthinking?',
+      a: 'The Gita agrees the mind is restless and hard to control (6.35), but says it can be trained. The method in 6.26 is simple and repeatable: each time the mind wanders off, gently bring it back — again and again — rather than fighting it or giving up.',
+    },
+    {
+      q: 'How does the Bhagavad Gita say to stop a restless mind?',
+      a: 'Through two things named in 6.35 — abhyasa (steady practice) and vairagya (non-attachment) — and the technique of 6.26: notice the wandering and lead the mind back to steadiness, patiently, however many times it strays. The Gita treats calm as trained, not forced.',
+    },
+    {
+      q: 'Which Gita verse is about controlling the mind?',
+      a: 'Verse 6.35 calls the mind restless but masterable by practice and non-attachment. Verse 6.26 gives the method of gently returning it whenever it wanders. Verse 2.67 warns how a single pursued distraction can carry judgment away like wind carries a boat.',
+    },
+    {
+      q: 'Does the Gita say the mind can really be controlled?',
+      a: 'It is honest that the mind is "as hard to hold as the wind" (6.34), but Krishna does not concede defeat: it is hard, he says, yet mastered by practice and non-attachment (6.35). Difficulty is acknowledged; impossibility is denied.',
+    },
+  ]}
+>
+  <p>
+    When Krishna tells Arjuna to steady his mind in meditation, Arjuna pushes back with a line anyone
+    who has lain awake at 3am will recognise: the mind, he says, is restless, turbulent, strong and
+    stubborn — trying to hold it is like trying to hold the wind. The remarkable thing is that Krishna
+    does not argue. He agrees. And then he says it can be done anyway.
+  </p>
+  <p>
+    That exchange, in <a href={withBase('gita/6')}>Chapter 6</a>, is the Gita's direct address to
+    overthinking — the looping, the rehearsing, the 2am courtroom where you argue a case nobody is
+    hearing. Its answer is less a single insight than a practice.
+  </p>
+
+  <h2>The honest diagnosis</h2>
+  <blockquote>
+    <p>"The mind is restless, turbulent, strong and unyielding; I think it as hard to master as the wind."</p>
+    <cite><a href={withBase('gita/6/34')}>Bhagavad Gita 6.34</a></cite>
+  </blockquote>
+  <p>
+    It matters that this is Arjuna's honest complaint and that the Gita lets it stand. You are not
+    failing at something that is supposed to be easy. The mind is genuinely hard to hold — the text
+    says so plainly before it offers any remedy.
+  </p>
+
+  <h2>Hard, but not hopeless</h2>
+  <blockquote>
+    <p>"Without doubt the mind is restless and hard to hold; but by practice and by non-attachment it can be mastered."</p>
+    <cite><a href={withBase('gita/6/35')}>Bhagavad Gita 6.35</a></cite>
+  </blockquote>
+  <p>
+    <strong>Practice</strong> (<em>abhyasa</em>) is the patient, repeated return to steadiness.
+    <strong>Non-attachment</strong> (<em>vairagya</em>) is loosening the grip on the outcomes the mind
+    keeps circling. Overthinking almost never yields to a single clever thought — if it did, you'd have
+    thought your way out already. It yields to this: quiet, unglamorous, repeated practice.
+  </p>
+
+  <h2>The actual technique</h2>
+  <blockquote>
+    <p>"Whenever the restless, unsteady mind wanders away, let one draw it back and bring it under the control of the self."</p>
+    <cite><a href={withBase('gita/6/26')}>Bhagavad Gita 6.26</a></cite>
+  </blockquote>
+  <p>
+    This is the whole method, and it is strikingly close to what modern mindfulness teaches. You do not
+    stop the mind from wandering — that is not on offer. You notice that it has wandered, and you lead
+    it back, <em>gently</em>, without the second spiral of scolding yourself for wandering. The returning
+    <em>is</em> the practice. Each time counts, even the hundredth time in a minute.
+  </p>
+
+  <h2>Why one distraction becomes a flood</h2>
+  <blockquote>
+    <p>"As a boat on the water is carried away by a gale, so even one of the wandering senses, if the mind follows it, carries away one's judgment."</p>
+    <cite><a href={withBase('gita/2/67')}>Bhagavad Gita 2.67</a></cite>
+  </blockquote>
+  <p>
+    The Gita's warning is precise: it is <em>following</em> the stray thought that does the damage. The
+    thought arrives on its own; the overthinking begins when the mind climbs aboard and lets itself be
+    carried. Catching that first boarding — before the gale picks up — is where the work is easiest.
+  </p>
+
+  <h2>The image to aim for</h2>
+  <blockquote>
+    <p>"As the waters flow into the ocean, which is ever being filled yet remains unmoved, so the one whom all desires enter attains peace — not the one who chases after desires."</p>
+    <cite><a href={withBase('gita/2/70')}>Bhagavad Gita 2.70</a></cite>
+  </blockquote>
+  <p>
+    Notice the ocean does not refuse the rivers. Thoughts and desires still arrive; peace is not an
+    empty mind but a steady one — large enough to receive the flow without being thrown by it. That,
+    not a blank, is the stillness the Gita points you toward.
+  </p>
+
+  <h2>Where to read next</h2>
+  <p>
+    Sit with <a href={withBase('gita/6')}>Chapter 6</a> on meditation and the mind. If the overthinking
+    is really anxious looping, see <a href={withBase('guides/bhagavad-gita-on-anxiety')}>the Gita on
+    anxiety</a>; if it keeps you flat and stuck, see
+    <a href={withBase('guides/bhagavad-gita-on-depression')}>the Gita on despair and feeling low</a>.
+    Or open Gita Daily and let a verse meet your mind where it is right now.
+  </p>
+</Guide>

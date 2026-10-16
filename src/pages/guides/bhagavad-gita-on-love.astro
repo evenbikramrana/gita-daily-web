@@ -1,0 +1,106 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+---
+
+<Guide
+  title="What the Bhagavad Gita says about love and relationships"
+  description="The Bhagavad Gita isn't a book about romance — but it draws a sharp, useful line between love and attachment, and between possessing someone and truly seeing them. The key verses, explained."
+  slug="bhagavad-gita-on-love"
+  datePublished="2026-10-17"
+  faq={[
+    {
+      q: 'What does the Bhagavad Gita say about love?',
+      a: 'The Gita distinguishes clinging attachment from steady love. Attachment grips a person for what they give us and curdles into desire and anger when thwarted (2.62–63); the love it praises is friendly, compassionate and free from possessiveness (12.13), and sees the same self in everyone (6.29).',
+    },
+    {
+      q: 'What does the Bhagavad Gita say about attachment in relationships?',
+      a: 'It warns that attachment — gripping an outcome or a person — is the root of suffering: from attachment comes desire, and from blocked desire, anger and confusion (2.62–63). The Gita does not ask you to love less, but to love without the clutching that turns love into fear of loss.',
+    },
+    {
+      q: 'Is there a difference between love and attachment in the Gita?',
+      a: 'Yes, and it is central. Attachment is self-centred holding on, anxious about what it might lose. The love the Gita praises is even-minded and non-possessive (12.13–14), extends goodwill to all (6.9), and recognises the same self in the other (6.29) — closer to steady care than to craving.',
+    },
+    {
+      q: 'Which Bhagavad Gita verse is about love?',
+      a: 'Verses 12.13–14 describe the one who is friendly, compassionate and free from possessiveness; 6.9 praises an equal heart toward friend and stranger alike; and 6.29 speaks of seeing oneself in all beings and all beings in oneself — the Gita’s widest picture of love.',
+    },
+  ]}
+>
+  <p>
+    The Bhagavad Gita is not a book about romance, and it would be a stretch to pretend otherwise. But
+    almost everything that aches in a relationship — jealousy, the fear of losing someone, love that
+    sours into resentment — the Gita maps with unusual precision, because it is fundamentally a book
+    about attachment. And love and attachment, it insists, are not the same thing.
+  </p>
+
+  <h2>Where attachment goes wrong</h2>
+  <blockquote>
+    <p>"Dwelling on the objects of the senses breeds attachment; from attachment springs desire, and from desire comes anger."</p>
+    <cite><a href={withBase('gita/2/62')}>Bhagavad Gita 2.62–63</a></cite>
+  </blockquote>
+  <p>
+    The chain is worth recognising in a relationship. Attachment here is not warmth; it is gripping —
+    needing the other person to be a certain way, to stay, to supply what we feel we lack. When that
+    grip is threatened, the Gita says, it turns to desire and then to anger. So much of what wounds
+    between people is this: not too much love, but too tight a hold.
+  </p>
+
+  <h2>The love it actually praises</h2>
+  <blockquote>
+    <p>"One who hates no being, who is friendly and compassionate, free from possessiveness and ego, even-minded in pain and pleasure, and forgiving…"</p>
+    <cite><a href={withBase('gita/12/13')}>Bhagavad Gita 12.13–14</a></cite>
+  </blockquote>
+  <p>
+    Read this as a portrait of how to love well: friendly, compassionate, <em>free from
+    possessiveness</em>. The Gita's ideal is not a cooler, more distant love — it is a warmer one that
+    has let go of ownership. You can care deeply for someone without needing to possess them; in fact
+    the Gita suggests that is the only kind of care that doesn't eventually hurt.
+  </p>
+
+  <h2>An even heart, not a transactional one</h2>
+  <blockquote>
+    <p>"One who is even-minded toward friend and foe, toward the honoured and the despised, toward heat and cold, pleasure and pain… is dear to me."</p>
+    <cite><a href={withBase('gita/6/9')}>Bhagavad Gita 6.9</a></cite>
+  </blockquote>
+  <p>
+    Much relationship pain is scorekeeping — love parcelled out according to who has earned it today.
+    The Gita points to a steadier heart, one whose goodwill does not swing wildly with every slight and
+    favour. Not indifference — stability. The warmth stays on even when the other person is, briefly,
+    hard to warm to.
+  </p>
+
+  <h2>The widest love: the same self in another</h2>
+  <blockquote>
+    <p>"One who sees the same self in all beings, and all beings in the self, never turns away from it."</p>
+    <cite><a href={withBase('gita/6/29')}>Bhagavad Gita 6.29</a></cite>
+  </blockquote>
+  <p>
+    This is the Gita's deepest word on love, and it quietly dissolves the usual boundary between self
+    and other. To recognise in the person across from you the very same awareness you feel in yourself
+    is the ground beneath compassion — the reason their suffering can matter to you as your own does.
+    Every smaller love, the Gita implies, is a narrowing of this one.
+  </p>
+
+  <h2>Loving without clutching</h2>
+  <blockquote>
+    <p>"As the ocean, ever filled, remains unmoved though the waters pour in, so the one whom all desires enter attains peace — not the one who chases after desires."</p>
+    <cite><a href={withBase('gita/2/70')}>Bhagavad Gita 2.70</a></cite>
+  </blockquote>
+  <p>
+    The ocean does not refuse the rivers, and it is not thrown by them. It is a fair image for love
+    held well: fully open, deeply affected, and yet not capsized by every tide of wanting. You can love
+    someone like the sea receives a river — completely, without being swept away.
+  </p>
+
+  <h2>Where to read next</h2>
+  <p>
+    If a relationship has left you holding anger, see
+    <a href={withBase('guides/bhagavad-gita-on-anger')}>the Gita on anger</a> and
+    <a href={withBase('guides/bhagavad-gita-on-forgiveness')}>on forgiveness</a>; if it's fear of loss,
+    <a href={withBase('guides/bhagavad-gita-on-fear')}>the Gita on fear</a>.
+    <a href={withBase('gita/12')}>Chapter 12</a> on devotion is where much of this lives. Or open Gita
+    Daily and let a verse meet the feeling you're carrying today.
+  </p>
+</Guide>

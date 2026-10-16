@@ -1,0 +1,112 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+---
+
+<Guide
+  title="What the Bhagavad Gita says about work and stress"
+  description="Karma yoga — the Bhagavad Gita's path of action — is a cure for work stress: do your work fully, skilfully and without clutching the outcome. The key verses, explained."
+  slug="bhagavad-gita-on-work-and-stress"
+  datePublished="2026-10-17"
+  faq={[
+    {
+      q: 'What does the Bhagavad Gita say about work?',
+      a: 'The Gita calls skilful, unattached work a spiritual path in itself — karma yoga. You do your work fully and well, but release your grip on the results (2.47), treating success and failure with an even mind (2.48). Work done this way becomes steadying rather than draining.',
+    },
+    {
+      q: 'What is karma yoga in the Bhagavad Gita?',
+      a: 'Karma yoga is the path of action without attachment to its fruits. Rather than renouncing work, you perform your duty with full effort and an even mind, offering the outcome rather than clinging to it (3.19). The Gita calls equanimity itself "yoga" (2.48) and "skill in action" (2.50).',
+    },
+    {
+      q: 'Which Bhagavad Gita verse helps with work stress?',
+      a: 'Verse 2.47 — "Your right is to action alone, never to its fruits" — is the core. Verse 2.48 counsels acting with an even mind toward success and failure, and 3.19 says to do your work without attachment, since that is how one reaches the highest.',
+    },
+    {
+      q: 'Does the Gita say to stop working or renounce ambition?',
+      a: 'No. It explicitly favours engaged action over withdrawal: the one who does their duty without clinging to reward is higher than the one who merely renounces work (6.1). It redirects ambition away from gripping outcomes, not away from effort.',
+    },
+  ]}
+>
+  <p>
+    Most work stress is not really about the work. It is about the gap between the effort you put in and
+    the outcome you cannot control — the deadline that depends on three other people, the review you
+    can't predict, the launch that might flop. The Bhagavad Gita built its central teaching precisely
+    around that gap, and it called the solution <em>karma yoga</em>: the path of action itself.
+  </p>
+  <p>
+    Far from telling you to care less or walk away, the Gita treats work done rightly as a discipline
+    that can steady the mind rather than fray it. Here is how.
+  </p>
+
+  <h2>Do the work; release the result</h2>
+  <blockquote>
+    <p>"Your right is to action alone, never to its fruits. Let not the fruit of action be your motive, nor let your attachment be to inaction."</p>
+    <cite><a href={withBase('gita/2/47')}>Bhagavad Gita 2.47</a></cite>
+  </blockquote>
+  <p>
+    Read it as a job description for a calmer working life: pour yourself fully into what is yours to
+    do, and stop paying interest on the part — the outcome — that was never in your hands. The verse
+    also warns against the opposite error: using uncertainty as an excuse for paralysis. Act, but hold
+    the result loosely.
+  </p>
+
+  <h2>Equanimity is the skill</h2>
+  <p>
+    The Gita's definition of yoga, in the middle of this teaching, is startlingly practical.
+  </p>
+  <blockquote>
+    <p>"Established in yoga, perform your actions, abandoning attachment and remaining even-minded in success and failure. Evenness of mind is called yoga."</p>
+    <cite><a href={withBase('gita/2/48')}>Bhagavad Gita 2.48</a></cite>
+  </blockquote>
+  <p>
+    Note what is being called the achievement here. Not the promotion, not the perfect quarter — the
+    <em>even mind</em> that meets both the win and the loss without being thrown. A little later the
+    Gita compresses it to four words: <em>yoga is skill in action</em>
+    (<a href={withBase('gita/2/50')}>2.50</a>). The skill is not only in the task; it is in how
+    steadily you hold yourself while doing it.
+  </p>
+
+  <h2>Work as offering, not as proof</h2>
+  <blockquote>
+    <p>"Therefore, always perform the work that must be done without attachment; for by doing work without attachment one attains the highest."</p>
+    <cite><a href={withBase('gita/3/19')}>Bhagavad Gita 3.19</a></cite>
+  </blockquote>
+  <p>
+    So much stress comes from work being made to carry your worth — every task a verdict on whether you
+    are enough. The Gita quietly removes that weight. The work is simply the work that must be done,
+    offered and released, not a trial you must keep winning.
+  </p>
+
+  <h2>Your own work, done imperfectly, beats someone else's done well</h2>
+  <blockquote>
+    <p>"Better one's own duty, though imperfect, than the duty of another well performed."</p>
+    <cite><a href={withBase('gita/3/35')}>Bhagavad Gita 3.35</a></cite>
+  </blockquote>
+  <p>
+    A surprising amount of modern work stress is comparison — measuring your path against someone whose
+    role, talents and circumstances are not yours. The Gita's counsel is to return to your own work and
+    do it, imperfectly and honestly, rather than exhaust yourself performing a life that belongs to
+    someone else.
+  </p>
+
+  <h2>Engagement, not escape</h2>
+  <blockquote>
+    <p>"One who performs the work that must be done without depending on its fruit is a renunciant and a yogi — not the one who lights no fire and does no work."</p>
+    <cite><a href={withBase('gita/6/1')}>Bhagavad Gita 6.1</a></cite>
+  </blockquote>
+  <p>
+    The fantasy of quitting it all is tempting on a hard week, but the Gita points elsewhere: the real
+    freedom is not in abandoning work, it is in working without being enslaved by the reward. You can
+    find that steadiness inside your job, not only by leaving it.
+  </p>
+
+  <h2>Where to read next</h2>
+  <p>
+    <a href={withBase('gita/2')}>Chapter 2</a> and <a href={withBase('gita/3')}>Chapter 3</a> are the
+    home of karma yoga. If the stress shows up as a racing mind, see
+    <a href={withBase('guides/bhagavad-gita-on-anxiety')}>the Gita on anxiety</a> or
+    <a href={withBase('guides/bhagavad-gita-on-overthinking')}>on overthinking</a>. Or open Gita Daily
+    and let a verse meet the pressure you're under today.
+  </p>
+</Guide>

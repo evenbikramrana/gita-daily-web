@@ -17,7 +17,7 @@ export const GET: APIRoute = () => {
 
   const body = `# Gita Daily
 
-> Gita Daily is a free, mood-led companion to the Bhagavad Gita. Read the complete scripture — all ${chapters.length} chapters and ${total} verses — free online, in the original Sanskrit with English, Hindi (हिन्दी) and Nepali (नेपाली) translations and context for every verse.
+> Gita Daily is a free, mood-led companion to the Bhagavad Gita. Read the complete scripture — all ${chapters.length} chapters and ${total} verses — free online in clear English, with the original Sanskrit and context for every verse. Hindi (हिन्दी) and Nepali (नेपाली) translations are also available.
 
 The Bhagavad Gita is free to read forever here, with no paywall and no account required to read. The website (gitadaily.org) is the reading home; the free companion Android app — on Google Play at https://play.google.com/store/apps/details?id=org.gitadaily.app — adds a daily verse, mood-based verse discovery, saved verses, reading streaks, and gentle daily reminders, while the scripture itself always stays free.
 

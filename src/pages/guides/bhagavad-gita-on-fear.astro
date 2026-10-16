@@ -1,0 +1,106 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+---
+
+<Guide
+  title="What the Bhagavad Gita says about fear"
+  description="The Bhagavad Gita names fear as the mind pulled out of the present by what it dreads — and offers a steadiness that doesn't depend on the danger going away. The key verses, explained."
+  slug="bhagavad-gita-on-fear"
+  datePublished="2026-10-17"
+  faq={[
+    {
+      q: 'What does the Bhagavad Gita say about fear?',
+      a: 'The Gita treats fear as the mind pulled out of the present by a dreaded outcome, in the same family as craving and anger (verse 2.56). Its answer is steadiness built through practice and non-attachment, and acting from duty rather than from dread.',
+    },
+    {
+      q: 'Which verse in the Bhagavad Gita is about overcoming fear?',
+      a: 'Verse 2.56 describes a sage free from fear, craving and anger. Verse 2.40 promises that even a little of this path protects from great fear. Verse 4.10 speaks of those purified who become free from attachment, fear and anger.',
+    },
+    {
+      q: 'How does the Bhagavad Gita say to overcome fear?',
+      a: 'Not by waiting for the danger to pass, but by steadying the mind (2.56, 6.35) and acting from your duty rather than from dread of the outcome. Fear loosens when you stop gripping a result you cannot control and give yourself to the action that is yours.',
+    },
+    {
+      q: 'What is the fearlessness the Gita praises?',
+      a: 'In 16.1, abhayam (fearlessness) is listed first among the qualities of a person of divine nature — not recklessness, but a settled mind that is not ruled by what it dreads.',
+    },
+  ]}
+>
+  <p>
+    Fear is where the Bhagavad Gita starts, even before anxiety or grief have names. Arjuna's hands
+    shake, his skin burns, his bow slips from his grip — the body's plain report of dread. The Gita
+    does not shame him for it. It takes fear seriously enough to answer it carefully, over eighteen
+    chapters, rather than telling him to simply be brave.
+  </p>
+  <p>
+    Its view is precise: fear is the mind yanked out of the present by an outcome it dreads — the mirror
+    image of craving, which is the mind pulled forward by an outcome it wants. Both hand your steadiness
+    to something outside you.
+  </p>
+
+  <h2>Fear sits in the same family as craving and anger</h2>
+  <blockquote>
+    <p>"One whose mind is untroubled in sorrow and free from craving amid pleasures, who is free from attachment, fear and anger — such a one is called a sage of steady wisdom."</p>
+    <cite><a href={withBase('gita/2/56')}>Bhagavad Gita 2.56</a></cite>
+  </blockquote>
+  <p>
+    Notice the Gita lists fear right beside craving and anger. It sees them as one mechanism: the mind
+    gripping or recoiling from a result. The freedom it points to is not a life with no danger in it —
+    it is a mind that danger cannot drag off its centre.
+  </p>
+
+  <h2>Even a little of this path protects you</h2>
+  <p>
+    The Gita knows that steadiness sounds like a lot to ask of a frightened person, so it makes an
+    unusually encouraging promise.
+  </p>
+  <blockquote>
+    <p>"In this path no effort is ever lost and no harm is done; even a little of this practice protects one from great fear."</p>
+    <cite><a href={withBase('gita/2/40')}>Bhagavad Gita 2.40</a></cite>
+  </blockquote>
+  <p>
+    You do not have to arrive at perfect fearlessness to feel the benefit. A little steadying is
+    already shelter. The practice is cumulative, and none of it is wasted.
+  </p>
+
+  <h2>Act from duty, not from dread</h2>
+  <p>
+    Much of what we call fear is really fear of a result — failing, losing, being judged. The Gita's
+    central instruction cuts straight at that: give yourself to the action that is yours, and release
+    your grip on how it turns out.
+  </p>
+  <blockquote>
+    <p>"Your right is to action alone, never to its fruits. Let not the fruit of action be your motive, nor let your attachment be to inaction."</p>
+    <cite><a href={withBase('gita/2/47')}>Bhagavad Gita 2.47</a></cite>
+  </blockquote>
+  <p>
+    When the outcome is no longer the thing you are clutching, the fear that lived in the outcome has
+    less to hold on to. You are left with the next honest thing to do.
+  </p>
+
+  <h2>Fearlessness, the first virtue</h2>
+  <p>
+    When Krishna lists the marks of a person of noble nature, he does not begin with cleverness or
+    strength.
+  </p>
+  <blockquote>
+    <p>"Fearlessness, purity of heart, steadfastness in knowledge…" — so begins the description of one born to a divine nature.</p>
+    <cite><a href={withBase('gita/16/1')}>Bhagavad Gita 16.1</a></cite>
+  </blockquote>
+  <p>
+    <em>Abhayam</em> — fearlessness — comes first. Not the absence of things worth fearing, but a
+    settledness that does not hand itself over to them.
+  </p>
+
+  <h2>Where to read next</h2>
+  <p>
+    Sit with <a href={withBase('gita/2')}>Chapter 2</a>, where most of these verses live. If your fear
+    is really a racing, outcome-gripping mind, the guide on
+    <a href={withBase('guides/bhagavad-gita-on-anxiety')}>what the Gita says about anxiety</a> goes
+    deeper; if it is fear of loss or death, see
+    <a href={withBase('guides/bhagavad-gita-on-death-and-grief')}>the Gita on death and grief</a>. Or
+    open Gita Daily and let a verse meet the feeling you are carrying now.
+  </p>
+</Guide>

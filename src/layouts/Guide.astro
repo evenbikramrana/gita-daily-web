@@ -8,8 +8,11 @@ export interface Props {
   /** ISO date, e.g. '2026-09-17' */
   datePublished: string;
   dateModified?: string;
+  /** Optional FAQ — rendered on-page and as FAQPage structured data (AEO). */
+  faq?: { q: string; a: string }[];
 }
-const { title, description, slug, datePublished, dateModified } = Astro.props;
+const { title, description, slug, datePublished, dateModified, faq } = Astro.props;
+const hasFaq = Array.isArray(faq) && faq.length > 0;
 const base = import.meta.env.BASE_URL;
 const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
 const site = (Astro.site?.href ?? 'https://gitadaily.org/').replace(/\/$/, '');
@@ -45,6 +48,18 @@ const schema = [
     ],
   },
 ];
+
+if (hasFaq) {
+  schema.push({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq!.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  });
+}
 ---
 
 <Base title={`${title} — Gita Daily`} description={description} schema={schema}>
@@ -54,6 +69,19 @@ const schema = [
     </nav>
     <h1>{title}</h1>
     <slot />
+    {
+      hasFaq && (
+        <section class="faq">
+          <h2>Common questions</h2>
+          {faq!.map((f) => (
+            <div class="faq-item">
+              <h3>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
+        </section>
+      )
+    }
     <div class="app-cta">
       <h3>Read by how you feel</h3>
       <p>Gita Daily meets you where you are — choose a mood and get a verse for the moment, plus a verse each day. The whole Gita, free.</p>
@@ -75,4 +103,10 @@ const schema = [
   .guide blockquote p { margin: 0; color: var(--ink); font-size: 1.15rem; line-height: 1.55; }
   .guide blockquote cite { display: block; margin-top: 10px; font-style: normal; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase; }
   .guide blockquote cite a { color: var(--accent); }
+
+  .faq { margin-top: var(--s8); padding-top: var(--s6); border-top: 1.5px solid var(--line-strong); }
+  .faq > h2 { margin-top: 0; }
+  .faq-item { margin-top: var(--s5); }
+  .faq-item h3 { margin: 0 0 var(--s2); font-size: 1.15rem; color: var(--ink); }
+  .faq-item p { margin: 0; color: var(--muted); line-height: 1.7; max-width: 68ch; }
 </style>

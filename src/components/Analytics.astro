@@ -1,0 +1,26 @@
+---
+// Google Analytics 4. Rendered only in production builds and only when a
+// Measurement ID is configured, so dev/preview never pollute the data and the
+// site ships zero tracking until you opt in by setting the ID in config.ts.
+import { GA_MEASUREMENT_ID } from '../config';
+
+const enabled = import.meta.env.PROD && GA_MEASUREMENT_ID.length > 0;
+const id = GA_MEASUREMENT_ID;
+---
+
+{
+  enabled && (
+    <>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${id}`} />
+      <script is:inline define:vars={{ id }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        // anonymize_ip keeps this aligned with the privacy-forward brand.
+        gtag('config', id, { anonymize_ip: true });
+      </script>
+    </>
+  )
+}

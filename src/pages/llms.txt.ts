@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import data from '../data/gita.json';
+import { guides } from './guides/index.astro';
 
 const SITE = 'https://gitadaily.org';
 
@@ -34,10 +35,7 @@ Every verse also has its own page at ${SITE}/gita/{chapter}/{verse} — for exam
 
 ## Guides
 Plain-language explainers, each citing specific verses:
-- [Read the Bhagavad Gita in Nepali (नेपाली)](${SITE}/guides/bhagavad-gita-in-nepali)
-- [What the Bhagavad Gita says about anxiety](${SITE}/guides/bhagavad-gita-on-anxiety)
-- [The Bhagavad Gita for beginners: where to start](${SITE}/guides/bhagavad-gita-for-beginners)
-- [What the Bhagavad Gita says about anger](${SITE}/guides/bhagavad-gita-on-anger)
+${guides.map((g) => `- [${g.title}](${SITE}/guides/${g.slug})`).join('\n')}
 - [All guides](${SITE}/guides)
 
 ## About & policies

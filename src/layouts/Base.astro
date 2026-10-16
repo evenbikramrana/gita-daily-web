@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Icon from '../components/Icon.astro';
+import Analytics from '../components/Analytics.astro';
 
 export interface Props {
   title: string;
@@ -96,6 +97,8 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [defaultS
     <meta name="twitter:image" content={ogImage} />
 
     {schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+
+    <Analytics />
   </head>
   <body>
     <header class="site-header">

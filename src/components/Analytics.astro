@@ -20,6 +20,17 @@ const id = GA_MEASUREMENT_ID;
         gtag('js', new Date());
         // anonymize_ip keeps this aligned with the privacy-forward brand.
         gtag('config', id, { anonymize_ip: true });
+        // "Get the app" clicks — the website's main conversion. Mark get_app_click as a key event
+        // in GA4 (Admin → Events) and compare placements (home / verse / chapter / gita-index).
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest && e.target.closest('a[data-cta]');
+          if (!a) return;
+          gtag('event', 'get_app_click', {
+            placement: a.getAttribute('data-cta'),
+            page_path: location.pathname,
+            transport_type: 'beacon',
+          });
+        });
       </script>
     </>
   )

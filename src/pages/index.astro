@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import data from '../data/gita.json';
+import { playUrl } from '../config';
 
 const base = import.meta.env.BASE_URL;
 const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
@@ -81,7 +82,7 @@ const features = [
       </p>
       <div class="btns reveal" style="--d:320ms">
         <a class="btn btn-primary" href={withBase('gita')}>Read the Gita free</a>
-        <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=org.gitadaily.app" target="_blank" rel="noopener">Get the app on Google Play</a>
+        <a class="btn btn-ghost" href={playUrl('home')} data-cta="home" target="_blank" rel="noopener">Get the app on Google Play</a>
       </div>
     </div>
   </section>

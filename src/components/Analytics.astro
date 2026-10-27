@@ -25,7 +25,8 @@ const id = GA_MEASUREMENT_ID;
         document.addEventListener('click', function (e) {
           var a = e.target.closest && e.target.closest('a[data-cta]');
           if (!a) return;
-          gtag('event', 'get_app_click', {
+          var ios = a.getAttribute('data-os') === 'ios';
+          gtag('event', ios ? 'ios_app_interest' : 'get_app_click', {
             placement: a.getAttribute('data-cta'),
             page_path: location.pathname,
             transport_type: 'beacon',

@@ -1,5 +1,6 @@
 ---
 import Base from './Base.astro';
+import { playUrl } from '../config';
 
 export interface Props {
   title: string;
@@ -83,9 +84,12 @@ if (hasFaq) {
       )
     }
     <div class="app-cta">
-      <h3>Read by how you feel</h3>
-      <p>Gita Daily meets you where you are — choose a mood and get a verse for the moment, plus a verse each day. The whole Gita, free.</p>
-      <a class="btn btn-primary" href={withBase('gita')}>Read the Gita free</a>
+      <h3>A verse for how you feel, every day</h3>
+      <p>Open Gita Daily, choose how you feel — anxious, heavy, restless, angry — and a verse meets you there. Save the ones that help, and get a gentle verse each morning. Free.</p>
+      <div class="app-cta-btns">
+        <a class="btn btn-primary" href={playUrl(`guide-${slug}`)} data-cta={`guide-${slug}`} target="_blank" rel="noopener">Get Gita Daily on Google Play</a>
+        <a class="app-cta-alt" href={withBase('gita')}>or keep reading online →</a>
+      </div>
     </div>
   </article>
 </Base>

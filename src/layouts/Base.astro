@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Icon from '../components/Icon.astro';
+import { playUrl } from '../config';
 import Analytics from '../components/Analytics.astro';
 
 export interface Props {
@@ -139,6 +140,20 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [defaultS
       <slot />
     </main>
 
+    <div class="app-banner" hidden>
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M50 78 C36 60 30 42 22 46 C26 64 38 74 50 78 Z" fill="#4E8F86" />
+        <path d="M50 78 C64 60 70 42 78 46 C74 64 62 74 50 78 Z" fill="#4E8F86" />
+        <path d="M50 78 C42 56 44 34 50 26 C56 34 58 56 50 78 Z" fill="#E5731F" />
+      </svg>
+      <div class="app-banner-text">
+        <strong>Gita Daily</strong>
+        <span>A verse for how you feel · Free</span>
+      </div>
+      <a class="btn btn-primary app-banner-get" href={playUrl('banner')} data-cta="banner" target="_blank" rel="noopener">Get</a>
+      <button class="app-banner-x" type="button" aria-label="Dismiss">×</button>
+    </div>
+
     <footer class="site-footer">
       <div class="wrap">
         <span>© {new Date().getFullYear()} Gita Daily · The Bhagavad Gita, free to read.</span>
@@ -179,6 +194,37 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [defaultS
               nav.classList.remove('open');
               mb.setAttribute('aria-expanded', 'false');
             }
+          });
+        }
+
+        // App links by platform: Android gets a sticky install banner after a little reading;
+        // iPhone visitors get "coming soon" instead of a Play Store dead end (taps are still
+        // counted, as ios_app_interest, to size iOS demand).
+        var ua = navigator.userAgent || '';
+        var isIOS = /iPhone|iPad|iPod/i.test(ua);
+        var isAndroid = /Android/i.test(ua);
+        if (isIOS) {
+          document.querySelectorAll('a[data-cta]').forEach(function (a) {
+            a.setAttribute('data-os', 'ios');
+            a.removeAttribute('href');
+            a.removeAttribute('target');
+            a.setAttribute('aria-disabled', 'true');
+            a.textContent = 'iPhone app coming soon';
+          });
+        }
+        var banner = document.querySelector('.app-banner');
+        var dismissedAt = 0;
+        try { dismissedAt = Number(localStorage.getItem('appBannerDismissed') || 0); } catch (e) {}
+        if (banner && isAndroid && Date.now() - dismissedAt > 14 * 864e5) {
+          var onScroll = function () {
+            if (window.scrollY < 500) return;
+            banner.hidden = false;
+            window.removeEventListener('scroll', onScroll);
+          };
+          window.addEventListener('scroll', onScroll, { passive: true });
+          banner.querySelector('.app-banner-x').addEventListener('click', function () {
+            banner.hidden = true;
+            try { localStorage.setItem('appBannerDismissed', String(Date.now())); } catch (e) {}
           });
         }
 

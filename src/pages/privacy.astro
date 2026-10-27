@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-const updated = 'October 17, 2026';
+const updated = 'October 27, 2026';
 const email = 'hello@gitadaily.org';
 ---
 
@@ -35,12 +35,26 @@ const email = 'hello@gitadaily.org';
         time. Reminder scheduling happens on your device.
       </li>
       <li>
+        <strong>Companion reflections (members only).</strong> If you use the reflection companion,
+        the messages you write and the companion's replies are saved to your account, so you can pick a
+        reflection up again and so the companion can remember what you shared about a verse. You can
+        delete all of them at any time in Settings → Companion → Forget my reflections.
+      </li>
+      <li>
+        <strong>App usage analytics.</strong> The app uses <strong>Google Analytics for Firebase</strong>
+        to understand, in aggregate, how it is used — for example which screens are opened, when a
+        verse's chant is played, or when a verse is saved or shared — and which page of our website or
+        store listing an install came from. These events are not linked to your name or email, never
+        include what you write to the companion, and the advertising ID and ad personalisation are
+        turned off.
+      </li>
+      <li>
         <strong>Technical data.</strong> Our hosting and infrastructure providers may process limited
         technical information (such as IP address and request logs) to operate the service securely.
       </li>
     </ul>
     <p>
-      The app does <strong>not</strong> include third-party advertising or analytics trackers, and it
+      The app does <strong>not</strong> include advertising, does not use your advertising ID, and
       does not collect your contacts, location, photos, or precise identifiers. (Analytics on our
       website is covered separately below.)
     </p>
@@ -50,6 +64,7 @@ const email = 'hello@gitadaily.org';
       <li>To create and secure your account and sign you in.</li>
       <li>To save your verses, streak, and progress and sync them to your account.</li>
       <li>To send the daily reminder you opt into (scheduled locally on your device).</li>
+      <li>To generate the companion's replies to what you write in a reflection.</li>
       <li>To operate, maintain, and improve the app.</li>
     </ul>
 
@@ -59,18 +74,28 @@ const email = 'hello@gitadaily.org';
       database) and processed by our backend hosted on <strong>Railway</strong>. These providers act
       as data processors on our behalf and may store data on servers outside your country.
     </p>
+    <p>
+      When you write to the reflection companion, the verse and your conversation are sent to
+      <strong>Anthropic</strong>, whose AI model writes the companion's replies. Anthropic processes this
+      on our behalf to generate the reply and does not use it to train its models. App usage analytics
+      are processed by <strong>Google</strong> (Firebase / Google Analytics).
+    </p>
 
     <h2>Sharing</h2>
     <p>
       We do not sell your personal information and we do not share it for advertising. We share data
-      only with the infrastructure providers named above, strictly to run the service, and where
-      required by law.
+      only with the providers named above (Supabase, Railway, Anthropic and Google), strictly to run and
+      improve the service, and where required by law.
     </p>
 
     <h2>Your choices &amp; your rights</h2>
     <ul>
       <li>You can turn daily reminders on or off at any time in the app's settings.</li>
       <li>You can remove saved verses at any time.</li>
+      <li>
+        You can delete all your companion reflections at any time in Settings → Companion → Forget my
+        reflections.
+      </li>
       <li>
         You can request access to, or deletion of, your account and associated data by emailing us at
         <a href={`mailto:${email}`}>{email}</a>. We'll action verified requests within a reasonable time.

@@ -1,0 +1,84 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+---
+
+<Guide
+  title="What the Bhagavad Gita says about loneliness"
+  description="Feeling like no one gets you? What the Bhagavad Gita says about loneliness, being a friend to yourself, and never being truly alone — verses 6.5, 6.30, 9.18, 10.20 and 18.64."
+  slug="bhagavad-gita-on-loneliness"
+  datePublished="2026-10-29"
+  faq={[
+    {
+      q: 'What does the Bhagavad Gita say about loneliness?',
+      a: 'It offers two comforts. Verse 6.5 says you can be a true friend to yourself. And verses like 6.30 and 9.18 describe the divine as a friend and shelter who is never separated from you.',
+    },
+    {
+      q: 'Is there a Gita verse that says we are never alone?',
+      a: 'Verse 6.30: “He who sees Me everywhere and sees everything in Me, he never becomes separated from Me, nor do I become separated from him.” And 10.20 says the Self is seated in the hearts of all beings.',
+    },
+    {
+      q: 'Should I just rely on the Gita when I feel lonely?',
+      a: 'The Gita can be real company, but loneliness also asks for human connection. Reach out to one person today — a message is enough — and if loneliness feels heavy or constant, talk to someone you trust or a professional.',
+    },
+  ]}
+>
+  <p>
+    You can be surrounded by people — in a hostel, an office, a family group chat — and still feel that
+    no one quite gets you. Loneliness is less about being alone than about not feeling met. The Bhagavad
+    Gita, which is itself a conversation between two friends, speaks to this gently.
+  </p>
+
+  <h2>Start by being a friend to yourself</h2>
+  <blockquote>
+    <p>"One should raise oneself by one's Self alone; let not one lower oneself; for the Self alone is the friend of oneself, and the Self alone is the enemy of oneself."</p>
+    <cite><a href={withBase('gita/6/5')}>Bhagavad Gita 6.5</a></cite>
+  </blockquote>
+  <p>
+    When no one else seems to understand, you can still be on your own side. The Gita says your Self can
+    be your friend — not a replacement for other people, but a ground to stand on while you find them.
+  </p>
+
+  <h2>A friend who doesn’t leave</h2>
+  <blockquote>
+    <p>"I am the goal, the supporter, the Lord, the witness, the abode, the shelter, the friend, the origin, the dissolution, the foundation, the treasure-house and the seed which is imperishable."</p>
+    <cite><a href={withBase('gita/9/18')}>Bhagavad Gita 9.18</a></cite>
+  </blockquote>
+  <p>
+    Among everything Krishna calls himself here — goal, shelter, foundation — is simply “the friend.” For
+    many readers, the Gita’s deepest comfort is this: there is a presence that witnesses you fully and
+    stays.
+  </p>
+  <blockquote>
+    <p>"He who sees Me everywhere and sees everything in Me, he never becomes separated from Me, nor do I become separated from him."</p>
+    <cite><a href={withBase('gita/6/30')}>Bhagavad Gita 6.30</a></cite>
+  </blockquote>
+
+  <h2>Connected underneath</h2>
+  <blockquote>
+    <p>"I am the Self, O Gudakesa, seated in the hearts of all beings; I am the beginning, the middle and also the end of all beings."</p>
+    <cite><a href={withBase('gita/10/20')}>Bhagavad Gita 10.20</a></cite>
+  </blockquote>
+  <p>
+    The Gita sees the same Self in every heart. The stranger on the bus, the classmate you haven’t spoken
+    to — underneath, not as separate from you as loneliness insists.
+  </p>
+
+  <h2>You are dearly loved</h2>
+  <blockquote>
+    <p>"Hear thou again My supreme word, most secret of all; because thou art dearly beloved of Me, I will tell thee what is good."</p>
+    <cite><a href={withBase('gita/18/64')}>Bhagavad Gita 18.64</a></cite>
+  </blockquote>
+  <p>
+    Near the end, Krishna tells Arjuna why he has said all this: because he is dearly loved. It is a line
+    worth reading slowly on a lonely night.
+  </p>
+
+  <p>
+    And one practical step the Gita would approve of: act. Send one message today to someone you’ve been
+    meaning to reach. If loneliness feels heavy or constant, please talk to someone you trust. For more,
+    see our guides on <a href={withBase('guides/bhagavad-gita-on-depression')}>despair</a> and
+    <a href={withBase('guides/bhagavad-gita-on-love')}>love</a>.
+  </p>
+</Guide>

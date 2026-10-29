@@ -1,0 +1,89 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+---
+
+<Guide
+  title="What the Bhagavad Gita says about procrastination"
+  description="Putting it off again? The Bhagavad Gita on action over inaction, why we avoid work, and how to begin — verses 3.8, 3.5, 2.47, 3.19 and 2.40."
+  slug="bhagavad-gita-on-procrastination"
+  datePublished="2026-10-29"
+  faq={[
+    {
+      q: 'Does the Bhagavad Gita talk about procrastination?',
+      a: 'Not by that name, but it is direct about avoiding action. Verse 3.8 says action is better than inaction, and 2.47 warns against attachment to inaction — the comfortable not-doing that procrastination often is.',
+    },
+    {
+      q: 'Why do we procrastinate, according to the Gita?',
+      a: 'Often because we are attached to the result — afraid it won’t be good enough. Verse 2.47 separates the work from its results: you only have to do the work. Letting go of the imagined result makes starting easier.',
+    },
+    {
+      q: 'What is a small step the Gita suggests?',
+      a: 'Verse 2.40 says no sincere effort is lost and even a little practice protects from great fear. A small start is never wasted — begin with five minutes.',
+    },
+  ]}
+>
+  <p>
+    The deadline is close, you know exactly what needs doing, and you are reorganising your desk for the
+    third time. Procrastination is rarely laziness — usually it is fear wearing comfortable clothes. The
+    Bhagavad Gita, a text about a man who didn’t want to act, has a lot to say about it.
+  </p>
+
+  <h2>Doing beats not doing</h2>
+  <blockquote>
+    <p>"Do thou perform (thy) bounden duty, for action is superior to inaction and even the maintenance of the body would not be possible for thee by inaction."</p>
+    <cite><a href={withBase('gita/3/8')}>Bhagavad Gita 3.8</a></cite>
+  </blockquote>
+  <p>
+    The Gita is plain: action is better than inaction. Not perfect action — just action. A rough first
+    draft is worth more than a perfect one that only exists in your head.
+  </p>
+
+  <h2>You can’t actually not act</h2>
+  <blockquote>
+    <p>"Verily none can ever remain for even a moment without performing action; for everyone is made to act helplessly indeed by the qualities born of Nature."</p>
+    <cite><a href={withBase('gita/3/5')}>Bhagavad Gita 3.5</a></cite>
+  </blockquote>
+  <p>
+    Even avoiding is doing something — scrolling, snacking, cleaning. Since you will spend the hour on
+    <em>something</em>, the question is only which thing. Choose it on purpose.
+  </p>
+
+  <h2>Let go of the result, and starting gets easier</h2>
+  <blockquote>
+    <p>"Thy right is to work only, but never with its fruits; let not the fruits of action be thy motive, nor let thy attachment be to inaction."</p>
+    <cite><a href={withBase('gita/2/47')}>Bhagavad Gita 2.47</a></cite>
+  </blockquote>
+  <p>
+    Look at the last line: “nor let thy attachment be to inaction.” The Gita names the pull of not
+    starting. And the first half explains it: when you’re gripping the outcome — will it be good enough,
+    what will they think — starting feels heavy. Your job is only the work. Do the next small piece
+    and let the result take care of itself.
+  </p>
+
+  <h2>Work without the weight</h2>
+  <blockquote>
+    <p>"Therefore without attachment, do thou always perform action which should be done; for by performing action without attachment man reaches the Supreme."</p>
+    <cite><a href={withBase('gita/3/19')}>Bhagavad Gita 3.19</a></cite>
+  </blockquote>
+  <p>
+    “Action which should be done” — not every possible task, just the one that is yours now. Done
+    without the extra weight of needing it to prove something about you.
+  </p>
+
+  <h2>Start small — it counts</h2>
+  <blockquote>
+    <p>"In this there is no loss of effort, nor is there any harm (production of contrary results or transgression). Even a little of this knowledge (even a little practice of this Yoga) protects one from great fear."</p>
+    <cite><a href={withBase('gita/2/40')}>Bhagavad Gita 2.40</a></cite>
+  </blockquote>
+  <p>
+    Even a little effort isn’t lost. Set a timer for five minutes and begin. Starting is usually the
+    hardest part; the Gita’s promise is that it’s never wasted.
+  </p>
+
+  <p>
+    Next: read <a href={withBase('gita/3')}>Chapter 3, the yoga of action</a>, or our guide on
+    <a href={withBase('guides/bhagavad-gita-on-overthinking')}>overthinking</a> if the loop is in your head.
+  </p>
+</Guide>

@@ -1,0 +1,92 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+---
+
+<Guide
+  title="What the Bhagavad Gita says about career confusion and finding your path"
+  description="Not sure what to do with your life? The Bhagavad Gita opens with someone who doesn't know either. Verses 2.7, 3.35, 2.41, 18.63 and 3.8 on confusion, purpose and choosing."
+  slug="bhagavad-gita-on-career-confusion"
+  datePublished="2026-10-29"
+  faq={[
+    {
+      q: 'What does the Bhagavad Gita say about finding your purpose?',
+      a: 'The Gita’s idea of svadharma — your own path, shaped by your nature — is its answer. Verse 3.35 says it is better to follow your own path imperfectly than to perform someone else’s well.',
+    },
+    {
+      q: 'What if I don’t know what I want to do?',
+      a: 'Verse 2.7 is Arjuna admitting exactly that: his mind is confused and he asks for help. The Gita treats honest confusion as the beginning of wisdom, not a failure.',
+    },
+    {
+      q: 'Does the Gita tell you what to choose?',
+      a: 'No. After eighteen chapters of teaching, Krishna ends with 18.63: “having reflected over it fully, then act as thou wishest.” The Gita gives you clarity and then trusts you to decide.',
+    },
+  ]}
+>
+  <p>
+    Everyone seems to have a plan except you. Maybe you picked a course because it was safe, or a job
+    because it was there, and now you wonder whether it is actually your life. The Bhagavad Gita begins
+    — honestly — with a capable person who has no idea what to do next.
+  </p>
+
+  <h2>Confusion is where it starts</h2>
+  <blockquote>
+    <p>"My heart is overpowered by the taint of pity; my mind is confused as to duty. I ask Thee: Tell me decisively what is good for me. I am Thy disciple. Instruct me who has taken refuge in Thee."</p>
+    <cite><a href={withBase('gita/2/7')}>Bhagavad Gita 2.7</a></cite>
+  </blockquote>
+  <p>
+    Arjuna is one of the most skilled people of his time, and he says plainly: my mind is confused,
+    tell me what is good for me. The whole Gita follows from that admission. Not knowing isn’t a sign
+    you’re behind — it is the moment real questions become possible. Asking for help is part of it.
+  </p>
+
+  <h2>Your own path, not the expected one</h2>
+  <blockquote>
+    <p>"Better is one's own duty, though devoid of merit than the duty of another well discharged. Better is death in one's own duty; the duty of another is fraught with fear (is productive of danger)."</p>
+    <cite><a href={withBase('gita/3/35')}>Bhagavad Gita 3.35</a></cite>
+  </blockquote>
+  <p>
+    Your path (<em>svadharma</em>) fits your nature in a way someone else’s never will. A career chosen
+    only to impress, or only because it’s what everyone does, is “fraught with fear” — you’ll always be
+    performing. Ask instead: what kind of work, done badly at first, would you still want to get better
+    at?
+  </p>
+
+  <h2>One direction, not a hundred</h2>
+  <blockquote>
+    <p>"Here, O joy of the Kurus, there is but a single one-pointed determination; many-branched and endless are the thoughts of the irresolute."</p>
+    <cite><a href={withBase('gita/2/41')}>Bhagavad Gita 2.41</a></cite>
+  </blockquote>
+  <p>
+    Ten open tabs of options can feel like freedom and work like paralysis. The Gita contrasts a mind
+    with one clear direction against a mind that branches endlessly. You don’t need the perfect choice
+    — you need one you can commit to for now.
+  </p>
+
+  <h2>Start moving</h2>
+  <blockquote>
+    <p>"Do thou perform (thy) bounden duty, for action is superior to inaction and even the maintenance of the body would not be possible for thee by inaction."</p>
+    <cite><a href={withBase('gita/3/8')}>Bhagavad Gita 3.8</a></cite>
+  </blockquote>
+  <p>
+    Clarity rarely comes from thinking alone; it comes from doing something and seeing how it fits. Take
+    the internship, build the small project, have the conversation. Action teaches what overthinking
+    can’t.
+  </p>
+
+  <h2>Then decide for yourself</h2>
+  <blockquote>
+    <p>"Thus has wisdom, more secret than secrecy itself, been declared unto thee by Me; having reflected over it fully, then act as thou wishest."</p>
+    <cite><a href={withBase('gita/18/63')}>Bhagavad Gita 18.63</a></cite>
+  </blockquote>
+  <p>
+    After everything, Krishna doesn’t give Arjuna an order. He says: reflect fully, then choose. The Gita
+    respects your choice — and asks only that it be thought through and truly yours.
+  </p>
+
+  <p>
+    Next: <a href={withBase('gita/3')}>Chapter 3</a> on action and your own path, or our guide on
+    <a href={withBase('guides/bhagavad-gita-on-work-and-stress')}>work and stress</a>.
+  </p>
+</Guide>

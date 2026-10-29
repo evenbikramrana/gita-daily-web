@@ -1,0 +1,86 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+---
+
+<Guide
+  title="What the Bhagavad Gita says about heartbreak and breakups"
+  description="Missing someone and can't stop thinking about them? What the Bhagavad Gita says about pain that passes, a mind that keeps returning, and healing — verses 2.14, 6.26, 6.5 and 18.37."
+  slug="bhagavad-gita-on-heartbreak"
+  datePublished="2026-10-29"
+  faq={[
+    {
+      q: 'What does the Bhagavad Gita say about heartbreak?',
+      a: 'It does not dismiss the pain. Verse 2.14 says pleasure and pain have a beginning and an end and asks us to endure them bravely — the ache is real, and it is not permanent.',
+    },
+    {
+      q: 'How do I stop thinking about my ex, according to the Gita?',
+      a: 'Verse 6.26 offers a gentle method: whenever the mind wanders off, notice it and bring it back — again and again, without fighting it. Verse 6.35 admits this is hard and says it comes with practice.',
+    },
+    {
+      q: 'Is there a Gita verse about healing?',
+      a: 'Verse 18.37 describes a kind of happiness that is “like poison at first but in the end like nectar” — the harder, cleaner path that hurts now and heals later, often exactly what moving on feels like.',
+    },
+  ]}
+>
+  <p>
+    Heartbreak has a particular cruelty: the person who used to comfort you is the one you most want
+    to talk to about it. The Bhagavad Gita isn’t a book about romance, but it is a book about losing
+    what you were attached to and finding your feet again — and it speaks to that with real
+    tenderness.
+  </p>
+
+  <h2>It hurts, and it will not hurt like this forever</h2>
+  <blockquote>
+    <p>"The contacts of the senses with the objects, O son of Kunti, which cause heat and cold, pleasure and pain, have a beginning and an end; they are impermanent; endure them bravely, O Arjuna."</p>
+    <cite><a href={withBase('gita/2/14')}>Bhagavad Gita 2.14</a></cite>
+  </blockquote>
+  <p>
+    The Gita doesn’t tell you the pain is unreal or that you should be over it already. It says pain,
+    like every feeling, has a beginning and an end. Enduring it bravely isn’t pretending to be fine —
+    it’s letting it move through you without deciding it is permanent.
+  </p>
+
+  <h2>When your mind keeps going back</h2>
+  <blockquote>
+    <p>"From whatever cause the restless and unsteady mind wanders away, from that let him restrain it and bring it under the control of the Self alone."</p>
+    <cite><a href={withBase('gita/6/26')}>Bhagavad Gita 6.26</a></cite>
+  </blockquote>
+  <p>
+    Rereading old messages, checking their stories, replaying the last conversation — the mind returns
+    to the wound. The Gita’s method is not to scold yourself for it, but to notice and gently come
+    back, as many times as it takes. Elsewhere it admits that the mind is “difficult to control and
+    restless; but by practice and by dispassion it may be restrained” (<a href={withBase('gita/6/35')}>6.35</a>).
+    Every return counts.
+  </p>
+
+  <h2>Be on your own side</h2>
+  <blockquote>
+    <p>"One should raise oneself by one's Self alone; let not one lower oneself; for the Self alone is the friend of oneself, and the Self alone is the enemy of oneself."</p>
+    <cite><a href={withBase('gita/6/5')}>Bhagavad Gita 6.5</a></cite>
+  </blockquote>
+  <p>
+    After a breakup, the voice that says “you weren’t enough” can be loud. The Gita reminds you that you
+    can be your own friend in this, not your own enemy. Talk to yourself the way you’d talk to a friend
+    going through the same thing.
+  </p>
+
+  <h2>Bitter now, sweet later</h2>
+  <blockquote>
+    <p>"That which is like poison at first but in the end like nectar — that happiness is declared to be Sattvic, born of the purity of one's own mind due to Self-realisation."</p>
+    <cite><a href={withBase('gita/18/37')}>Bhagavad Gita 18.37</a></cite>
+  </blockquote>
+  <p>
+    Some choices hurt at first and heal in the end — not texting back, letting go, building a life
+    that stands on its own. The Gita calls that the truer kind of happiness. It rarely feels like
+    happiness at the start.
+  </p>
+
+  <p>
+    If what you’re feeling is closer to deep sadness or hopelessness, read our guide on
+    <a href={withBase('guides/bhagavad-gita-on-depression')}>despair</a>, and please talk to someone you
+    trust. For more on the difference between love and attachment, see
+    <a href={withBase('guides/bhagavad-gita-on-love')}>love and relationships</a>.
+  </p>
+</Guide>

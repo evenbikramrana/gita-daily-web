@@ -1,0 +1,91 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+---
+
+<Guide
+  title="What the Bhagavad Gita says about exam stress and results"
+  description="Exams, results and the fear of failing — what the Bhagavad Gita says about effort, outcomes and staying steady, through verses 2.47, 2.48, 2.14, 6.17 and 2.40."
+  slug="bhagavad-gita-on-exam-stress"
+  datePublished="2026-10-29"
+  faq={[
+    {
+      q: 'Which Bhagavad Gita verse helps with exam stress?',
+      a: 'Verse 2.47 is the one most students carry: your right is to the work, not its results. It does not mean results don’t matter — it means your peace shouldn’t depend on something you cannot fully control.',
+    },
+    {
+      q: 'What does the Gita say about failure?',
+      a: 'Verse 2.48 asks you to act “balanced in success and failure” and calls that evenness yoga. Verse 2.40 adds that no sincere effort is lost — even a little practice protects you from great fear.',
+    },
+    {
+      q: 'Does the Gita say anything about rest and sleep?',
+      a: 'Yes. Verse 6.17 says steadiness comes to someone moderate in eating, recreation, effort, sleep and waking. Pulling all-nighters every night is not discipline in the Gita’s sense — balance is.',
+    },
+  ]}
+>
+  <p>
+    The night before an exam, or the week before results, your whole future can seem to hang on one
+    number. The Bhagavad Gita was spoken to someone in a similar state — Arjuna, frozen before the
+    biggest test of his life, sure that everything depended on how it would turn out. Its advice to
+    him reads like advice to any student.
+  </p>
+
+  <h2>Do the work; the result is not yours to hold</h2>
+  <blockquote>
+    <p>"Thy right is to work only, but never with its fruits; let not the fruits of action be thy motive, nor let thy attachment be to inaction."</p>
+    <cite><a href={withBase('gita/2/47')}>Bhagavad Gita 2.47</a></cite>
+  </blockquote>
+  <p>
+    This verse is often misread as “don’t care about marks.” It says something more useful: your
+    effort is yours; the result also depends on the paper, the marking, the day. Put your whole heart
+    into studying — and notice the last line, which rules out giving up (“nor let thy attachment be to
+    inaction”). Then let the result be what it will be. Studying with your attention on the work, not on
+    the imagined result, is also simply how people study best.
+  </p>
+
+  <h2>Steady in success and failure</h2>
+  <blockquote>
+    <p>"Perform action, O Arjuna, being steadfast in Yoga, abandoning attachment and balanced in success and failure. Evenness of mind is called Yoga."</p>
+    <cite><a href={withBase('gita/2/48')}>Bhagavad Gita 2.48</a></cite>
+  </blockquote>
+  <p>
+    The Gita’s definition of yoga here is not a pose — it is evenness of mind. A good result and a bad
+    one both pass; you remain. One exam is one chapter, not the whole story of who you are.
+  </p>
+
+  <h2>This feeling will pass</h2>
+  <blockquote>
+    <p>"The contacts of the senses with the objects, O son of Kunti, which cause heat and cold, pleasure and pain, have a beginning and an end; they are impermanent; endure them bravely, O Arjuna."</p>
+    <cite><a href={withBase('gita/2/14')}>Bhagavad Gita 2.14</a></cite>
+  </blockquote>
+  <p>
+    The dread in your stomach has a beginning and an end. The Gita doesn’t ask you to stop feeling it —
+    only to endure it bravely, knowing it is temporary.
+  </p>
+
+  <h2>Rest is part of the work</h2>
+  <blockquote>
+    <p>"Yoga becomes the destroyer of pain for him who is moderate in eating and recreation (such as walking, etc.), who is moderate in exertion in actions, who is moderate in sleep and wakefulness."</p>
+    <cite><a href={withBase('gita/6/17')}>Bhagavad Gita 6.17</a></cite>
+  </blockquote>
+  <p>
+    Moderate in sleep and wakefulness — the Gita is practical. A rested mind recalls more than an
+    exhausted one. Eat, walk, sleep, then study again.
+  </p>
+
+  <h2>No sincere effort is wasted</h2>
+  <blockquote>
+    <p>"In this there is no loss of effort, nor is there any harm (production of contrary results or transgression). Even a little of this knowledge (even a little practice of this Yoga) protects one from great fear."</p>
+    <cite><a href={withBase('gita/2/40')}>Bhagavad Gita 2.40</a></cite>
+  </blockquote>
+  <p>
+    Whatever the result, what you learned stays with you, and the habit of steady effort carries into
+    everything after. Even a little of this steadiness, the Gita says, protects you from great fear.
+  </p>
+
+  <p>
+    Next: read the heart of this teaching in <a href={withBase('gita/2')}>Chapter 2</a>, or see our
+    guide on <a href={withBase('guides/bhagavad-gita-on-anxiety')}>anxiety</a> for the nights before.
+  </p>
+</Guide>

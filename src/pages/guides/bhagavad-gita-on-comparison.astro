@@ -1,0 +1,88 @@
+---
+import Guide from '../../layouts/Guide.astro';
+const base = import.meta.env.BASE_URL;
+const withBase = (p = '') => (base.endsWith('/') ? base : base + '/') + p;
+---
+
+<Guide
+  title="What the Bhagavad Gita says about comparing yourself to others"
+  description="Scrolling and feeling behind? The Bhagavad Gita's answer to comparison — your own path over someone else's, explained through verses 3.35, 2.47, 4.22 and 6.5."
+  slug="bhagavad-gita-on-comparison"
+  datePublished="2026-10-29"
+  faq={[
+    {
+      q: 'What does the Bhagavad Gita say about comparing yourself to others?',
+      a: 'Verse 3.35 says it is better to follow your own path imperfectly than someone else’s perfectly. Comparison pulls you onto a path that was never yours; the Gita asks you to return to your own work, done sincerely, and to measure yourself by that.',
+    },
+    {
+      q: 'Is there a Gita verse about envy?',
+      a: 'Verse 4.22 describes a person “free from the pairs of opposites and envy, even-minded in success and failure” — not someone who never feels envy, but someone it no longer drives.',
+    },
+    {
+      q: 'How can the Gita help with social media comparison?',
+      a: 'Social media shows you the results of other people’s lives. Verse 2.47 moves your attention from results to your own effort, which is the only part you hold. Verse 6.5 adds that you can be your own friend or your own enemy — comparison is often the second.',
+    },
+  ]}
+>
+  <p>
+    You open your phone for a minute and close it twenty minutes later, somehow behind. Someone your
+    age has the job, the trip, the relationship, the glow-up. The feeling isn’t new — it is just
+    louder now. The Bhagavad Gita has a surprisingly direct answer to it, and it begins with a line
+    that sounds almost stubborn.
+  </p>
+
+  <h2>Your own path, even imperfect</h2>
+  <blockquote>
+    <p>"Better is one's own duty, though devoid of merit than the duty of another well discharged."</p>
+    <cite><a href={withBase('gita/3/35')}>Bhagavad Gita 3.35</a></cite>
+  </blockquote>
+  <p>
+    The Gita’s word is <em>svadharma</em> — the path that is genuinely yours, shaped by your nature,
+    your circumstances and what is yours to do. The verse is blunt: walking your own path clumsily is
+    better than walking someone else’s flawlessly. Comparison quietly asks you to live a life that was
+    never fitted to you. The Gita says: even if you could, it would not feel like yours.
+  </p>
+
+  <h2>What you can actually hold</h2>
+  <blockquote>
+    <p>"Thy right is to work only, but never with its fruits; let not the fruits of action be thy motive, nor let thy attachment be to inaction."</p>
+    <cite><a href={withBase('gita/2/47')}>Bhagavad Gita 2.47</a></cite>
+  </blockquote>
+  <p>
+    A feed is a wall of other people’s results — the offer letter, never the rejections; the finished
+    body, never the mornings. When you compare, you compare your effort to their outcomes. The Gita’s
+    most famous verse turns you back to the one thing that is yours: the work in front of you, done
+    honestly. The results were never yours to hold — theirs or your own.
+  </p>
+
+  <h2>Envy, and being steady anyway</h2>
+  <blockquote>
+    <p>"Content with what comes to him without effort, free from the pairs of opposites and envy, even-minded in success and failure, though acting, he is not bound."</p>
+    <cite><a href={withBase('gita/4/22')}>Bhagavad Gita 4.22</a></cite>
+  </blockquote>
+  <p>
+    The Gita doesn’t pretend envy is unusual. It describes a person who is no longer pushed around by
+    it — still acting, still ambitious, but not bound. Freedom here isn’t wanting nothing; it is not
+    needing to win the comparison to feel okay.
+  </p>
+
+  <h2>Be a friend to yourself</h2>
+  <blockquote>
+    <p>"One should raise oneself by one's Self alone; let not one lower oneself; for the Self alone is the friend of oneself, and the Self alone is the enemy of oneself."</p>
+    <cite><a href={withBase('gita/6/5')}>Bhagavad Gita 6.5</a></cite>
+  </blockquote>
+  <p>
+    Most comparison is a voice that lowers you. The Gita names it plainly: you can be your own friend
+    or your own enemy. A small practice: when you catch yourself measuring, ask what a friend would
+    say to you right now — and say that instead. Then put the phone down and do one thing on your own
+    path.
+  </p>
+
+  <h2>Where to go from here</h2>
+  <p>
+    Read <a href={withBase('gita/3')}>Chapter 3</a> for the Gita’s teaching on action and one’s own
+    path, or start with <a href={withBase('gita/2/47')}>2.47</a>, the verse most people carry with
+    them. If the feeling underneath is anxiety about the future, our guide on
+    <a href={withBase('guides/bhagavad-gita-on-anxiety')}>anxiety</a> may help too.
+  </p>
+</Guide>

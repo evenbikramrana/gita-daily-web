@@ -1,5 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
+import Takeaway from '../../../components/Takeaway.astro';
 import data from '../../../data/gita.json';
 import { playUrl } from '../../../config';
 import { verseGuides } from '../../../data/verseGuides';
@@ -46,7 +47,10 @@ const clip = (s: string, n = 155) => {
 };
 
 const title = `Bhagavad Gita ${ref}: meaning, Sanskrit & translation`;
-const description = verse.en
+// Lead with the takeaway — the plain-language line people are searching for.
+const description = verse.takeawayEn
+  ? `Bhagavad Gita ${ref}: ${verse.takeawayEn} Read the Sanskrit with English, Hindi and Nepali translations and context.`
+  : verse.en
   ? `Bhagavad Gita ${ref} — "${clip(verse.en, 120)}" Read the original Sanskrit with English, Hindi and Nepali translations and context.`
   : `Bhagavad Gita chapter ${chapter.number}, verse ${verse.number} — original Sanskrit with English, Hindi and Nepali translations and context.`;
 
@@ -97,6 +101,7 @@ const schema = [
     </div>
 
     <section class="verse">
+      <Takeaway verse={verse} />
       <p class="sanskrit" lang="sa">{verse.sanskrit}</p>
 
       {verse.en && <p class="meaning" data-tr="en" lang="en">{verse.en}</p>}

@@ -1,0 +1,12 @@
+---
+// The verse's one line to carry, in each language — shown above the Sanskrit and
+// switched by the page's language toggle like the translations.
+interface Props {
+  verse: { takeawayEn?: string | null; takeawayHi?: string | null; takeawayNe?: string | null };
+}
+const { verse } = Astro.props;
+---
+
+{verse.takeawayEn && <p class="takeaway" data-tr="en" lang="en">{verse.takeawayEn}</p>}
+{verse.takeawayHi && <p class="takeaway deva" data-tr="hi" lang="hi">{verse.takeawayHi}</p>}
+{verse.takeawayNe && <p class="takeaway deva" data-tr="ne" lang="ne">{verse.takeawayNe}</p>}

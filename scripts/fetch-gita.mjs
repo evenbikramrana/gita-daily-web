@@ -65,6 +65,10 @@ for (const ch of chapters) {
       contextEn: clean(v.context?.contextEn),
       contextHi: clean(v.context?.contextHi),
       contextNe: clean(v.context?.contextNe),
+      // One-line takeaways; if the API doesn't serve them yet, run merge-takeaways.mjs after.
+      takeawayEn: v.takeawayEn ?? null,
+      takeawayHi: v.takeawayHi ?? null,
+      takeawayNe: v.takeawayNe ?? null,
     }));
   const [en, theme] = META[ch.number] || [ch.title, ''];
   out.push({ number: ch.number, title: ch.title, en, theme, verseCount: verses.length, verses });

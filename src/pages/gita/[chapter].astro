@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Takeaway from '../../components/Takeaway.astro';
 import data from '../../data/gita.json';
 import { playUrl } from '../../config';
 import { chapterIntros } from '../../data/chapterIntros';
@@ -84,6 +85,7 @@ const schema = [
       {chapter.verses.map((v) => (
         <section class="verse" id={`v${v.number}`}>
           <div class="verse-num"><a href={withBase(`gita/${chapter.number}/${v.number}`)}>{chapter.number}.{v.number}</a></div>
+          <Takeaway verse={v} />
           <p class="sanskrit" lang="sa">{v.sanskrit}</p>
 
           {v.en && <p class="meaning" data-tr="en" lang="en">{v.en}</p>}

@@ -347,6 +347,8 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .verse-num { font-family: var(--display); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.06em; color: var(--accent); }
 .verse-num a { color: var(--accent); }
 .sanskrit { font-family: var(--deva); font-size: 1.42rem; line-height: 1.95; color: var(--ink); margin: 12px 0 16px; white-space: pre-line; font-weight: 500; }
+.takeaway { font-family: var(--display); font-weight: 600; font-size: 1.3rem; line-height: 1.4; color: var(--ink); margin: 6px 0 4px; letter-spacing: -0.01em; }
+.takeaway.deva { font-family: var(--deva); font-size: 1.2rem; line-height: 1.7; }
 .meaning { font-size: 1.12rem; line-height: 1.65; color: var(--ink); margin: 0; }
 .meaning.deva { font-family: var(--deva); line-height: 1.9; }
 .byline { color: var(--muted); font-size: 0.82rem; margin-top: 8px; font-weight: 600; }

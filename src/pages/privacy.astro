@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-const updated = 'October 27, 2026';
+const updated = 'November 1, 2026';
 const email = 'hello@gitadaily.org';
 ---
 
@@ -65,6 +65,8 @@ const email = 'hello@gitadaily.org';
       <li>To save your verses, streak, and progress and sync them to your account.</li>
       <li>To send the daily reminder you opt into (scheduled locally on your device).</li>
       <li>To generate the companion's replies to what you write in a reflection.</li>
+      <li>To find a verse for what you write in “What's on your mind?”.</li>
+      <li>To review AI-written replies that you report to us, so we can improve them.</li>
       <li>To operate, maintain, and improve the app.</li>
     </ul>
 
@@ -76,9 +78,20 @@ const email = 'hello@gitadaily.org';
     </p>
     <p>
       When you write to the reflection companion, the verse and your conversation are sent to
-      <strong>Anthropic</strong>, whose AI model writes the companion's replies. Anthropic processes this
-      on our behalf to generate the reply and does not use it to train its models. App usage analytics
+      <strong>Anthropic</strong>, whose AI model writes the companion's replies. When you use “What's on
+      your mind?” (available with or without an account), what you write is also sent to Anthropic, to
+      choose a verse and write a short line about why it fits; we keep a daily count of uses to limit
+      them, but we do not store what you wrote. Anthropic processes this on our behalf to generate the
+      reply and does not use it to train its models. App usage analytics
       are processed by <strong>Google</strong> (Firebase / Google Analytics).
+    </p>
+
+    <h2>Reporting AI replies</h2>
+    <p>
+      Replies written by AI can sometimes be wrong or unhelpful. You can report any of them in the app
+      (“Report this response”, or “Report a reply” in the companion). A report stores the reply you
+      flagged, the reason you chose, the verse it was about and, if you are signed in, your account, so
+      we can review it. We use reports only to improve the replies.
     </p>
 
     <h2>Sharing</h2>
